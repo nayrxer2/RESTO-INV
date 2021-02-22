@@ -13,7 +13,7 @@ Module modGeneral
 
 #Region "Get Connection"
     Public Function DBconnection()
-        Return "data source = localhost, 1433; uid=sa; pwd=weak; Initial Catalog = CBPOSPredep"
+        Return "data source = 192.168.9.102, 1433; uid=sa; pwd=weak; Initial Catalog = CBPOSPredep"
     End Function
 #End Region
 

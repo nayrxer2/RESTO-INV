@@ -50,9 +50,9 @@ Partial Class ucTitle
         '
         Me.Button1.Dock = System.Windows.Forms.DockStyle.Right
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Location = New System.Drawing.Point(173, 0)
+        Me.Button1.Location = New System.Drawing.Point(164, 0)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(22, 47)
+        Me.Button1.Size = New System.Drawing.Size(31, 47)
         Me.Button1.TabIndex = 2
         Me.Button1.Text = "X"
         Me.Button1.UseVisualStyleBackColor = True

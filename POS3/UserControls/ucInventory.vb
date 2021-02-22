@@ -2,7 +2,7 @@
 Public Class ucInventory
 
     Public Sub dgvHeaderText()
-        dgvInventory.DefaultCellStyle.ForeColor = Color.Black
+        dgvInventory.DefaultCellStyle.ForeColor = Color.White
         dgvInventory.Columns("FLDItemName").HeaderText = "Item"
         dgvInventory.Columns("FLDStart").HeaderText = "Start"
         dgvInventory.Columns("FLDDeliver").HeaderText = "Del"

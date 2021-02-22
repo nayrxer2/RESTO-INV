@@ -2,7 +2,7 @@
 Public Class frmMain
     Private _ucNav As New ucNav
     Private _ucInventory As New ucInventory
-    Public _ucTitle As New ucTitle
+    'Public _ucTitle As New ucTitle
 
     Public Sub loadInvInfo()
         Try
@@ -45,7 +45,7 @@ Public Class frmMain
 
     Private Sub frmMenu_Load(sender As Object, e As EventArgs) Handles Me.Load
         Me.WindowState = FormWindowState.Maximized
-        Me.Controls.Add(_ucTitle)
+        'Me.Controls.Add(_ucTitle)
 
         scMain.FixedPanel = FixedPanel.Panel1
         scMain.SplitterDistance = 190
@@ -85,5 +85,9 @@ Public Class frmMain
 
     Private Sub RefreshToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RefreshToolStripMenuItem.Click
         loadInvInfo()
+    End Sub
+
+    Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
+        End
     End Sub
 End Class
