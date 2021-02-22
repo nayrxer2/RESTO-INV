@@ -57,7 +57,7 @@ Public Class ucNav
         Dim dgvInventory = New DataGridView
         uc = New ucInventory
         uc.Dock = DockStyle.Fill
-        frmMain.scMain.Panel2.Controls.Clear()
-        frmMain.scMain.Panel2.Controls.Add(uc)
+        'frmMain.scMain.Panel2.Controls.Clear()
+        'frmMain.scMain.Panel2.Controls.Add(uc)
     End Sub
 End Class

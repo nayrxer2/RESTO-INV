@@ -128,6 +128,12 @@
     <Compile Include="UserControls\ucInventory.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="UserControls\ucInventoryPage.Designer.vb">
+      <DependentUpon>ucInventoryPage.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucInventoryPage.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="UserControls\ucMenuItemBtn.Designer.vb">
       <DependentUpon>ucMenuItemBtn.vb</DependentUpon>
     </Compile>
@@ -180,6 +186,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ucInventory.resx">
       <DependentUpon>ucInventory.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucInventoryPage.resx">
+      <DependentUpon>ucInventoryPage.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ucMenuItemBtn.resx">
       <DependentUpon>ucMenuItemBtn.vb</DependentUpon>

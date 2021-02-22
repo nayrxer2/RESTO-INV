@@ -43,7 +43,7 @@ Public Class popCreateNewInventory
 
             If _clsInvInfo.createInventory() Then
                 MessageBox.Show("YES you made it!")
-                frmMain.loadInvInfo()
+                'frmMain.loadInvInfo()
                 Me.Close()
             Else
                 MessageBox.Show("sala ubra mo")

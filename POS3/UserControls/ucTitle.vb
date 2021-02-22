@@ -1,25 +1,16 @@
 ﻿Public Class ucTitle
     Private Sub ucTitle_Load(sender As Object, e As EventArgs) Handles Me.Load
         'frmName = Form.ActiveForm.Name
-        Me.Dock = DockStyle.Top
     End Sub
 
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
         Dim frmName = Form.ActiveForm.Name
-        'Dim frm As Form
+        Dim ParentForm = Me.Parent
 
-        'If frm.Name = frmName Then
-        '    frm.Close()
-        'End If
-
-        'frm.Close()
-        'Dim frmControl As Control = DirectCast(Controls(frmName), Form)
-        'frm.Close()
-        'MessageBox.Show(frmName)
-
-
-        'MessageBox.Show(Form.ActiveForm.Name)
+        If ParentForm.Name = frmName Then
+            End
+        End If
     End Sub
 
     Public Function getform(ByVal Formname As String) As Form

@@ -1,7 +1,7 @@
 ﻿Imports System.Data.SqlClient
 Public Class ucLogin
     Public _ucNav As New ucNav
-    Public _ucTitle As New ucTitle
+    'Public _ucTitle As New ucTitle
 
     Dim uname As String
     Dim upwd As String
@@ -41,7 +41,15 @@ Public Class ucLogin
             MessageBox.Show("Something went wrong" + ex.Message)
         End Try
     End Function
+
     Private Sub ucLogin_Load(sender As Object, e As EventArgs) Handles Me.Load
         getUserList(txtUsername)
+
+        Dim uc As New ucTitle
+        Me.Controls.Add(uc)
+        uc.Dock = DockStyle.Top
+        uc.lblTitle.Text = "User Login"
+
+
     End Sub
 End Class

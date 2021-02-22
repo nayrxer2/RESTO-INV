@@ -32,7 +32,7 @@ Partial Class ucLogin
         'btnLogin
         '
         Me.btnLogin.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.btnLogin.BackColor = System.Drawing.Color.DodgerBlue
+        Me.btnLogin.BackColor = System.Drawing.Color.Chocolate
         Me.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnLogin.ForeColor = System.Drawing.Color.Transparent
         Me.btnLogin.Location = New System.Drawing.Point(4, 167)
