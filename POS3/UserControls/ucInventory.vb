@@ -83,7 +83,6 @@ Public Class ucInventory
             frm.txtEndW.Text = dgvInventory.CurrentRow.Cells("FLDInvEndW").Value.ToString
             frm.txtEndF.Text = dgvInventory.CurrentRow.Cells("FLDInvEndF").Value.ToString
             frm.txtEndX.Text = dgvInventory.CurrentRow.Cells("FLDInvEndE").Value.ToString
-            frm.txtEndT.Text = dgvInventory.CurrentRow.Cells("FLDInvEndT").Value.ToString
             frm.ShowDialog()
         End Using
     End Sub

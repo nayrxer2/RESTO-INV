@@ -32,12 +32,10 @@ Partial Class popUpdateEnd
         Me.lblIDNumber = New System.Windows.Forms.Label()
         Me.lblID = New System.Windows.Forms.Label()
         Me.txtRemarks = New System.Windows.Forms.TextBox()
-        Me.txtEndT = New System.Windows.Forms.TextBox()
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.btnConfirm = New System.Windows.Forms.Button()
         Me.txtItemName = New System.Windows.Forms.TextBox()
         Me.lblRemark = New System.Windows.Forms.Label()
-        Me.lblTEnding = New System.Windows.Forms.Label()
         Me.lblItemName = New System.Windows.Forms.Label()
         Me.pnlUpdateEnd.SuspendLayout()
         Me.SuspendLayout()
@@ -54,12 +52,10 @@ Partial Class popUpdateEnd
         Me.pnlUpdateEnd.Controls.Add(Me.lblIDNumber)
         Me.pnlUpdateEnd.Controls.Add(Me.lblID)
         Me.pnlUpdateEnd.Controls.Add(Me.txtRemarks)
-        Me.pnlUpdateEnd.Controls.Add(Me.txtEndT)
         Me.pnlUpdateEnd.Controls.Add(Me.btnCancel)
         Me.pnlUpdateEnd.Controls.Add(Me.btnConfirm)
         Me.pnlUpdateEnd.Controls.Add(Me.txtItemName)
         Me.pnlUpdateEnd.Controls.Add(Me.lblRemark)
-        Me.pnlUpdateEnd.Controls.Add(Me.lblTEnding)
         Me.pnlUpdateEnd.Controls.Add(Me.lblItemName)
         Me.pnlUpdateEnd.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.pnlUpdateEnd.Location = New System.Drawing.Point(3, 2)
@@ -74,6 +70,8 @@ Partial Class popUpdateEnd
         Me.txtEndF.Name = "txtEndF"
         Me.txtEndF.Size = New System.Drawing.Size(78, 21)
         Me.txtEndF.TabIndex = 29
+        Me.txtEndF.Text = "0"
+        Me.txtEndF.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'lblEndF
         '
@@ -92,6 +90,8 @@ Partial Class popUpdateEnd
         Me.txtEndX.Name = "txtEndX"
         Me.txtEndX.Size = New System.Drawing.Size(78, 21)
         Me.txtEndX.TabIndex = 27
+        Me.txtEndX.Text = "0"
+        Me.txtEndX.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'lblEndX
         '
@@ -110,6 +110,8 @@ Partial Class popUpdateEnd
         Me.txtEndW.Name = "txtEndW"
         Me.txtEndW.Size = New System.Drawing.Size(78, 21)
         Me.txtEndW.TabIndex = 25
+        Me.txtEndW.Text = "0"
+        Me.txtEndW.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'lblEndW
         '
@@ -150,18 +152,10 @@ Partial Class popUpdateEnd
         Me.txtRemarks.Size = New System.Drawing.Size(386, 134)
         Me.txtRemarks.TabIndex = 21
         '
-        'txtEndT
-        '
-        Me.txtEndT.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtEndT.Location = New System.Drawing.Point(399, 135)
-        Me.txtEndT.Name = "txtEndT"
-        Me.txtEndT.Size = New System.Drawing.Size(78, 21)
-        Me.txtEndT.TabIndex = 20
-        '
         'btnCancel
         '
         Me.btnCancel.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCancel.Location = New System.Drawing.Point(402, 333)
+        Me.btnCancel.Location = New System.Drawing.Point(402, 318)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(75, 30)
         Me.btnCancel.TabIndex = 19
@@ -171,7 +165,7 @@ Partial Class popUpdateEnd
         'btnConfirm
         '
         Me.btnConfirm.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnConfirm.Location = New System.Drawing.Point(321, 333)
+        Me.btnConfirm.Location = New System.Drawing.Point(321, 318)
         Me.btnConfirm.Name = "btnConfirm"
         Me.btnConfirm.Size = New System.Drawing.Size(75, 30)
         Me.btnConfirm.TabIndex = 18
@@ -196,16 +190,6 @@ Partial Class popUpdateEnd
         Me.lblRemark.Size = New System.Drawing.Size(63, 13)
         Me.lblRemark.TabIndex = 2
         Me.lblRemark.Text = "Remarks:"
-        '
-        'lblTEnding
-        '
-        Me.lblTEnding.AutoSize = True
-        Me.lblTEnding.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTEnding.Location = New System.Drawing.Point(396, 119)
-        Me.lblTEnding.Name = "lblTEnding"
-        Me.lblTEnding.Size = New System.Drawing.Size(43, 13)
-        Me.lblTEnding.TabIndex = 1
-        Me.lblTEnding.Text = "End T:"
         '
         'lblItemName
         '
@@ -235,12 +219,10 @@ Partial Class popUpdateEnd
 
     Friend WithEvents pnlUpdateEnd As Panel
     Friend WithEvents txtRemarks As TextBox
-    Friend WithEvents txtEndT As TextBox
     Friend WithEvents btnCancel As Button
     Friend WithEvents btnConfirm As Button
     Friend WithEvents txtItemName As TextBox
     Friend WithEvents lblRemark As Label
-    Friend WithEvents lblTEnding As Label
     Friend WithEvents lblItemName As Label
     Friend WithEvents lblID As Label
     Friend WithEvents lblIDNumber As Label
