@@ -28,7 +28,7 @@ Partial Class frmPopup
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(241, 216)
+        Me.ClientSize = New System.Drawing.Size(242, 283)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmPopup"
         Me.Text = "frmPopup"

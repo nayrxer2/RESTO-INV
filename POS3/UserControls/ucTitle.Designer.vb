@@ -22,23 +22,21 @@ Partial Class ucTitle
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ucTitle))
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.pbTitleImage = New System.Windows.Forms.PictureBox()
         Me.lblTitle = New System.Windows.Forms.Label()
         Me.btnExit = New System.Windows.Forms.Button()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbTitleImage, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'PictureBox1
+        'pbTitleImage
         '
-        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Left
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(48, 47)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox1.TabIndex = 0
-        Me.PictureBox1.TabStop = False
+        Me.pbTitleImage.Dock = System.Windows.Forms.DockStyle.Left
+        Me.pbTitleImage.Location = New System.Drawing.Point(0, 0)
+        Me.pbTitleImage.Name = "pbTitleImage"
+        Me.pbTitleImage.Size = New System.Drawing.Size(48, 47)
+        Me.pbTitleImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.pbTitleImage.TabIndex = 0
+        Me.pbTitleImage.TabStop = False
         '
         'lblTitle
         '
@@ -74,16 +72,16 @@ Partial Class ucTitle
         Me.BackColor = System.Drawing.Color.Black
         Me.Controls.Add(Me.btnExit)
         Me.Controls.Add(Me.lblTitle)
-        Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.pbTitleImage)
         Me.Name = "ucTitle"
         Me.Size = New System.Drawing.Size(195, 47)
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbTitleImage, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents pbTitleImage As PictureBox
     Friend WithEvents lblTitle As Label
     Friend WithEvents btnExit As Button
 End Class

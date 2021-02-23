@@ -22,13 +22,12 @@ Public Class frmMain
 
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles Me.Load
         Me.WindowState = FormWindowState.Maximized
-        Me.Controls.Add(_ucTitle)
-        _ucTitle.Dock = DockStyle.Top
-        _ucTitle.lblTitle.Text = "Coffeebreak Intl Inventory System"
 
+        Me.Controls.Add(_ucInventoryPage)
         _ucInventoryPage.Dock = DockStyle.Fill
-        'scForm.Panel2.Controls.Add(_ucInventoryPage)
-        '_ucInventoryPage.Dock = DockStyle.Fill
+
+        Me.Controls.Add(_ucTitle)
+        _ucTitle.lblTitle.Text = "Coffeebreak Intl Inventory System"
 
         MyPCName = System.Net.Dns.GetHostName
 

@@ -44,44 +44,44 @@ Module modInventory
                                 .FLDItemName = ""
                             ElseIf IsDBNull(oReader("FLDGroupName")) Then
                                 .FLDGroupName = ""
-                            ElseIf IsDBNull(oReader("FLDProdUsed")) Then
-                                .FLDProdUsed = Nothing
-                            ElseIf IsDBNull(oReader("FLDProdMade")) Then
-                                .FLDProdMade = Nothing
-                            ElseIf IsDBNull(oReader("FLDMealUsage")) Then
-                                .FLDMealUsage = Nothing
+                                'ElseIf IsDBNull(oReader("FLDProdUsed")) Then
+                                '    .FLDProdUsed = Nothing
+                                'ElseIf IsDBNull(oReader("FLDProdMade")) Then
+                                '    .FLDProdMade = Nothing
+                                'ElseIf IsDBNull(oReader("FLDMealUsage")) Then
+                                '    .FLDMealUsage = Nothing
                             ElseIf IsDBNull(oReader("FLDRemarks")) Then
                                 .FLDRemarks = ""
                             ElseIf IsDBNull(oReader("FLDInvID")) Then
                                 .FLDInvID = Nothing
                             ElseIf IsDBNull(oReader("FLDInventoryNum")) Then
                                 .FLDInventoryNum = Nothing
-                            ElseIf IsDBNull(oReader("FLDStoreID")) Then
-                                .FLDStoreID = Nothing
+                                'ElseIf IsDBNull(oReader("FLDStoreID")) Then
+                                '    .FLDStoreID = Nothing
                             Else
                                 .FLDItemName = oReader("FLDItemName")
                                 .FLDGroupName = oReader("FLDGroupName")
-                                .FLDProdUsed = oReader("FLDProdUsed")
-                                .FLDProdMade = oReader("FLDProdMade")
-                                .FLDMealUsage = oReader("FLDMealUsage")
+                                '.FLDProdUsed = oReader("FLDProdUsed")
+                                '.FLDProdMade = oReader("FLDProdMade")
+                                '.FLDMealUsage = oReader("FLDMealUsage")
                                 .FLDRemarks = oReader("FLDRemarks")
                                 .FLDInvID = oReader("FLDInvID")
                                 .FLDInventoryNum = oReader("FLDInventoryNum")
                                 .FLDStoreID = oReader("FLDStoreID")
                             End If
                             .FLDStart = oReader("FLDStart")
-                            .FLDDeliver = oReader("FLDDeliver")
-                            .FLDTransfer = oReader("FLDTransfer")
-                            .FLDReturn = oReader("FLDReturn")
+                            '.FLDDeliver = oReader("FLDDeliver")
+                            '.FLDTransfer = oReader("FLDTransfer")
+                            '.FLDReturn = oReader("FLDReturn")
                             ' .FLDAdjustment = oReader("FLDAdjustment")
                             .FLDInvEndW = oReader("FLDInvEndW")
                             .FLDInvEndF = oReader("FLDInvEndF")
                             .FLDInvEndE = oReader("FLDInvEndE")
                             .FLDInvEndT = oReader("FLDInvEndT")
-                            .FLDInvUsage = oReader("FLDInvUsage")
-                            .FLDPOSUsage = oReader("FLDPOSUsage")
-                            .FLDVariance = oReader("FLDVariance")
-                            .FLDUnitPrice = oReader("FLDUnitPrice")
+                            '.FLDInvUsage = oReader("FLDInvUsage")
+                            '.FLDPOSUsage = oReader("FLDPOSUsage")
+                            '.FLDVariance = oReader("FLDVariance")
+                            '.FLDUnitPrice = oReader("FLDUnitPrice")
                             list.Add(_clsInvD)
                         End With
 
@@ -240,13 +240,11 @@ Module modInventory
             Dim _arrInvDetail = (From l In arrInvDetail
                                  Where l.FLDInvID = invID And l.FLDGroupName = invGName
                                  Order By l.FLDItemName Ascending
-                                 Select New With {l.FLDItemName, l.FLDStart, l.FLDDeliver,
-                                        l.FLDTransfer, l.FLDReturn, l.FLDProdUsed,
-                                        l.FLDProdMade, l.FLDInvEndW,
+                                 Select New With {l.FLDItemName, l.FLDStart, l.FLDInvEndW,
                                         l.FLDInvEndF, l.FLDInvEndE, l.FLDInvEndT,
-                                        l.FLDInvUsage, l.FLDPOSUsage, l.FLDMealUsage,
-                                        l.FLDVariance, l.FLDUnitPrice, l.FLDRemarks}).ToList()
+                                        l.FLDRemarks}).ToList()
 
+            'l.FLDDeliver,l.FLDTransfer, l.FLDReturn, l.FLDProdUsed, l.FLDProdMade,  l.FLDInvUsage, l.FLDPOSUsage, l.FLDMealUsage, l.FLDVariance, l.FLDUnitPrice,
             dgvInventory.DataSource = _arrInvDetail
 
         Catch ex As Exception

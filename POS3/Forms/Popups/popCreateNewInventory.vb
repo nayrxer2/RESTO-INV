@@ -10,7 +10,6 @@ Public Class popCreateNewInventory
         'dtpDateStart.Value = Date.Now
 
         Me.CenterToParent()
-        Me.pnlCreateInv.Controls.Add(_ucTitle)
 
         Dim _arrInvInfo = (From linvInfo
                            In arrInvInfo Order By linvInfo.FLDinvID Descending

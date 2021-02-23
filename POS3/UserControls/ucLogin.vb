@@ -48,8 +48,13 @@ Public Class ucLogin
         Dim uc As New ucTitle
         Me.Controls.Add(uc)
         uc.Dock = DockStyle.Top
-        uc.lblTitle.Text = "User Login"
+        uc.lblTitle.Text = ""
 
+
+
+    End Sub
+
+    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
 
     End Sub
 End Class

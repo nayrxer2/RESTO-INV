@@ -1,6 +1,7 @@
 ﻿Public Class ucTitle
     Private Sub ucTitle_Load(sender As Object, e As EventArgs) Handles Me.Load
         'frmName = Form.ActiveForm.Name
+        Me.Dock = DockStyle.Top
     End Sub
 
 
