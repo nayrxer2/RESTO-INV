@@ -28,6 +28,7 @@ Public Class frmMain
 
         Me.Controls.Add(_ucTitle)
         _ucTitle.lblTitle.Text = "Coffeebreak Intl Inventory System"
+        _ucTitle.pbTitleImage.ImageLocation = "D:\Projects\RESTO-INV\POS3\Assets\logo.png"
 
         MyPCName = System.Net.Dns.GetHostName
 

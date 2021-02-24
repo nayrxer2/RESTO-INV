@@ -23,6 +23,7 @@ Partial Class frmMain
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain))
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.SuspendLayout()
         '
@@ -41,7 +42,7 @@ Partial Class frmMain
         Me.ForeColor = System.Drawing.Color.CornflowerBlue
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmMain"
-        Me.Text = "frmMenu"
+        Me.Text = resources.GetString("$this.Text")
         Me.ResumeLayout(False)
 
     End Sub

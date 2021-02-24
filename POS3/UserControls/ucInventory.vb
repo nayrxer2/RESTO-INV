@@ -3,6 +3,7 @@ Public Class ucInventory
 
     Public Sub dgvHeaderText()
         dgvInventory.DefaultCellStyle.ForeColor = Color.Black
+        dgvInventory.Columns("FLDItemCode").HeaderText = "Code"
         dgvInventory.Columns("FLDItemName").HeaderText = "Item"
         dgvInventory.Columns("FLDStart").HeaderText = "Start"
         'dgvInventory.Columns("FLDDeliver").HeaderText = "Del"
@@ -90,4 +91,5 @@ Public Class ucInventory
     Private Sub tsbtnPost_Click(sender As Object, e As EventArgs) Handles tsbtnPost.Click
 
     End Sub
+
 End Class

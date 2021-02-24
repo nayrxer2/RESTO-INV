@@ -29,14 +29,14 @@
 
         If computeTotalEnding(EndW, EndF, EndE) Then
             MessageBox.Show("YES BITCH")
-            modInventory.loadInvDet(_ucInventory.dgvInventory, _ucInventory.tslblInvNumberText.Text, _ucInventory.tscbGName.Text)
+            'modInventory.loadInvDet(_ucInventory.dgvInventory, _ucInventory.tslblInvNumberText.Text, _ucInventory.tscbGName.Text)
             Me.Close()
         End If
 
-        If cls.updateInvDetails() = True Then
-            Me.Close()
-            modInventory.loadInvDet(_ucInventory.dgvInventory, _ucInventory.tslblInvNumberText.Text, _ucInventory.tscbGName.Text)
-        End If
+        'If cls.updateInvDetails() = True Then
+        '    Me.Close()
+        '    modInventory.loadInvDet(_ucInventory.dgvInventory, _ucInventory.tslblInvNumberText.Text, _ucInventory.tscbGName.Text)
+        'End If
     End Sub
 
     Public Function computeTotalEnding(EndW, EndF, EndE)
