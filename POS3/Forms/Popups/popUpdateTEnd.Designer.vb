@@ -23,14 +23,16 @@ Partial Class popUpdateEnd
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.pnlUpdateEnd = New System.Windows.Forms.Panel()
+        Me.lblItemCodeNum = New System.Windows.Forms.Label()
+        Me.lblItemCode = New System.Windows.Forms.Label()
         Me.txtEndF = New System.Windows.Forms.TextBox()
         Me.lblEndF = New System.Windows.Forms.Label()
         Me.txtEndX = New System.Windows.Forms.TextBox()
         Me.lblEndX = New System.Windows.Forms.Label()
         Me.txtEndW = New System.Windows.Forms.TextBox()
         Me.lblEndW = New System.Windows.Forms.Label()
-        Me.lblIDNumber = New System.Windows.Forms.Label()
-        Me.lblID = New System.Windows.Forms.Label()
+        Me.lblInvNumberNum = New System.Windows.Forms.Label()
+        Me.lblInvNumber = New System.Windows.Forms.Label()
         Me.txtRemarks = New System.Windows.Forms.TextBox()
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.btnConfirm = New System.Windows.Forms.Button()
@@ -43,14 +45,16 @@ Partial Class popUpdateEnd
         'pnlUpdateEnd
         '
         Me.pnlUpdateEnd.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.pnlUpdateEnd.Controls.Add(Me.lblItemCodeNum)
+        Me.pnlUpdateEnd.Controls.Add(Me.lblItemCode)
         Me.pnlUpdateEnd.Controls.Add(Me.txtEndF)
         Me.pnlUpdateEnd.Controls.Add(Me.lblEndF)
         Me.pnlUpdateEnd.Controls.Add(Me.txtEndX)
         Me.pnlUpdateEnd.Controls.Add(Me.lblEndX)
         Me.pnlUpdateEnd.Controls.Add(Me.txtEndW)
         Me.pnlUpdateEnd.Controls.Add(Me.lblEndW)
-        Me.pnlUpdateEnd.Controls.Add(Me.lblIDNumber)
-        Me.pnlUpdateEnd.Controls.Add(Me.lblID)
+        Me.pnlUpdateEnd.Controls.Add(Me.lblInvNumberNum)
+        Me.pnlUpdateEnd.Controls.Add(Me.lblInvNumber)
         Me.pnlUpdateEnd.Controls.Add(Me.txtRemarks)
         Me.pnlUpdateEnd.Controls.Add(Me.btnCancel)
         Me.pnlUpdateEnd.Controls.Add(Me.btnConfirm)
@@ -62,6 +66,26 @@ Partial Class popUpdateEnd
         Me.pnlUpdateEnd.Name = "pnlUpdateEnd"
         Me.pnlUpdateEnd.Size = New System.Drawing.Size(492, 370)
         Me.pnlUpdateEnd.TabIndex = 0
+        '
+        'lblItemCodeNum
+        '
+        Me.lblItemCodeNum.AutoSize = True
+        Me.lblItemCodeNum.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblItemCodeNum.Location = New System.Drawing.Point(250, 55)
+        Me.lblItemCodeNum.Name = "lblItemCodeNum"
+        Me.lblItemCodeNum.Size = New System.Drawing.Size(63, 13)
+        Me.lblItemCodeNum.TabIndex = 32
+        Me.lblItemCodeNum.Text = "00000000"
+        '
+        'lblItemCode
+        '
+        Me.lblItemCode.AutoSize = True
+        Me.lblItemCode.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblItemCode.Location = New System.Drawing.Point(168, 55)
+        Me.lblItemCode.Name = "lblItemCode"
+        Me.lblItemCode.Size = New System.Drawing.Size(73, 13)
+        Me.lblItemCode.TabIndex = 30
+        Me.lblItemCode.Text = "Item Code:"
         '
         'txtEndF
         '
@@ -123,25 +147,25 @@ Partial Class popUpdateEnd
         Me.lblEndW.TabIndex = 24
         Me.lblEndW.Text = "End W:"
         '
-        'lblIDNumber
+        'lblInvNumberNum
         '
-        Me.lblIDNumber.AutoSize = True
-        Me.lblIDNumber.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblIDNumber.Location = New System.Drawing.Point(88, 55)
-        Me.lblIDNumber.Name = "lblIDNumber"
-        Me.lblIDNumber.Size = New System.Drawing.Size(35, 13)
-        Me.lblIDNumber.TabIndex = 23
-        Me.lblIDNumber.Text = "0000"
+        Me.lblInvNumberNum.AutoSize = True
+        Me.lblInvNumberNum.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblInvNumberNum.Location = New System.Drawing.Point(76, 55)
+        Me.lblInvNumberNum.Name = "lblInvNumberNum"
+        Me.lblInvNumberNum.Size = New System.Drawing.Size(35, 13)
+        Me.lblInvNumberNum.TabIndex = 23
+        Me.lblInvNumberNum.Text = "0000"
         '
-        'lblID
+        'lblInvNumber
         '
-        Me.lblID.AutoSize = True
-        Me.lblID.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblID.Location = New System.Drawing.Point(9, 55)
-        Me.lblID.Name = "lblID"
-        Me.lblID.Size = New System.Drawing.Size(26, 13)
-        Me.lblID.TabIndex = 22
-        Me.lblID.Text = "ID:"
+        Me.lblInvNumber.AutoSize = True
+        Me.lblInvNumber.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblInvNumber.Location = New System.Drawing.Point(9, 55)
+        Me.lblInvNumber.Name = "lblInvNumber"
+        Me.lblInvNumber.Size = New System.Drawing.Size(44, 13)
+        Me.lblInvNumber.TabIndex = 22
+        Me.lblInvNumber.Text = "Inv #:"
         '
         'txtRemarks
         '
@@ -224,12 +248,14 @@ Partial Class popUpdateEnd
     Friend WithEvents txtItemName As TextBox
     Friend WithEvents lblRemark As Label
     Friend WithEvents lblItemName As Label
-    Friend WithEvents lblID As Label
-    Friend WithEvents lblIDNumber As Label
+    Friend WithEvents lblInvNumber As Label
+    Friend WithEvents lblInvNumberNum As Label
     Friend WithEvents txtEndF As TextBox
     Friend WithEvents lblEndF As Label
     Friend WithEvents txtEndX As TextBox
     Friend WithEvents lblEndX As Label
     Friend WithEvents txtEndW As TextBox
     Friend WithEvents lblEndW As Label
+    Friend WithEvents lblItemCodeNum As Label
+    Friend WithEvents lblItemCode As Label
 End Class

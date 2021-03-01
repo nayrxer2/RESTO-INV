@@ -3,6 +3,7 @@ Public Class ucInventory
 
     Public Sub dgvHeaderText()
         dgvInventory.DefaultCellStyle.ForeColor = Color.Black
+        dgvInventory.Columns("FLDItemCode").HeaderText = "ItemCode"
         dgvInventory.Columns("FLDItemName").HeaderText = "Item"
         dgvInventory.Columns("FLDStart").HeaderText = "Start"
         'dgvInventory.Columns("FLDDeliver").HeaderText = "Del"
@@ -33,7 +34,6 @@ Public Class ucInventory
         dgvInventory.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
         dgvInventory.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
         dgvInventory.RowHeadersVisible = False
-
         loadGName()
 
         tcInventory.TabPages(0).Text = "Inventory Sheet"
@@ -83,6 +83,8 @@ Public Class ucInventory
             frm.txtEndW.Text = dgvInventory.CurrentRow.Cells("FLDInvEndW").Value.ToString
             frm.txtEndF.Text = dgvInventory.CurrentRow.Cells("FLDInvEndF").Value.ToString
             frm.txtEndX.Text = dgvInventory.CurrentRow.Cells("FLDInvEndE").Value.ToString
+            frm.lblItemCodeNum.Text = dgvInventory.CurrentRow.Cells("FLDItemCode").Value.ToString
+            frm.lblInvNumberNum.Text = tslblInvNumberText.Text
             frm.ShowDialog()
         End Using
     End Sub

@@ -39,7 +39,7 @@ Module modInventory
                             '.FLDCategory = oReader("FLDCategory")
                             '.FLDGroupCode = oReader("FLDGroupCode")
 
-                            '.FLDItemCode = oReader("FLDItemCode")
+
                             If IsDBNull(oReader("FLDItemName")) Then
                                 .FLDItemName = ""
                             ElseIf IsDBNull(oReader("FLDGroupName")) Then
@@ -58,6 +58,8 @@ Module modInventory
                                 .FLDInventoryNum = Nothing
                                 'ElseIf IsDBNull(oReader("FLDStoreID")) Then
                                 '    .FLDStoreID = Nothing
+                            ElseIf IsDBNull(oReader("FLDItemCode")) Then
+                                .FLDItemCode = Nothing
                             Else
                                 .FLDItemName = oReader("FLDItemName")
                                 .FLDGroupName = oReader("FLDGroupName")
@@ -67,7 +69,8 @@ Module modInventory
                                 .FLDRemarks = oReader("FLDRemarks")
                                 .FLDInvID = oReader("FLDInvID")
                                 .FLDInventoryNum = oReader("FLDInventoryNum")
-                                .FLDStoreID = oReader("FLDStoreID")
+                                '.FLDStoreID = oReader("FLDStoreID")
+                                .FLDItemCode = oReader("FLDItemCode")
                             End If
                             .FLDStart = oReader("FLDStart")
                             '.FLDDeliver = oReader("FLDDeliver")
@@ -240,7 +243,7 @@ Module modInventory
             Dim _arrInvDetail = (From l In arrInvDetail
                                  Where l.FLDInvID = invID And l.FLDGroupName = invGName
                                  Order By l.FLDItemName Ascending
-                                 Select New With {l.FLDItemName, l.FLDStart, l.FLDInvEndW,
+                                 Select New With {l.FLDItemCode, l.FLDItemName, l.FLDStart, l.FLDInvEndW,
                                         l.FLDInvEndF, l.FLDInvEndE, l.FLDInvEndT,
                                         l.FLDRemarks}).ToList()
 

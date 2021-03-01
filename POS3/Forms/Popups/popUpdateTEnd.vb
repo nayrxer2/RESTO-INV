@@ -15,36 +15,39 @@
     Dim EndW As Integer
     Dim EndF As Integer
     Dim EndE As Integer
+    Dim EndT As Decimal
+    Dim unitRatio As Decimal
 
     Private Sub btnConfirm_Click(sender As Object, e As EventArgs) Handles btnConfirm.Click
         EndW = txtEndW.Text
         EndF = txtEndF.Text
         EndE = txtEndX.Text
 
-        Dim cls As New clsInvDetails With {
-            .FLDInvEndW = EndW,
-            .FLDInvEndF = EndF,
-            .FLDInvEndE = EndE
-            }
 
         If computeTotalEnding(EndW, EndF, EndE) Then
+
+            Dim cls As New clsInvDetails With {
+            .FLDInvEndW = EndW,
+            .FLDInvEndF = EndF,
+            .FLDInvEndE = EndE,
+            .FLDInvEndT = EndT
+            }
+
             MessageBox.Show("YES BITCH")
             modInventory.loadInvDet(_ucInventory.dgvInventory, _ucInventory.tslblInvNumberText.Text, _ucInventory.tscbGName.Text)
+            MessageBox.Show(EndT)
             Me.Close()
         End If
 
-        If cls.updateInvDetails() = True Then
-            Me.Close()
-            modInventory.loadInvDet(_ucInventory.dgvInventory, _ucInventory.tslblInvNumberText.Text, _ucInventory.tscbGName.Text)
-        End If
+        'If cls.updateInvDetails() = True Then
+        '    Me.Close()
+        '    modInventory.loadInvDet(_ucInventory.dgvInventory, _ucInventory.tslblInvNumberText.Text, _ucInventory.tscbGName.Text)
+        'End If
     End Sub
 
     Public Function computeTotalEnding(EndW, EndF, EndE)
-        Dim EndT As Decimal
 
-        EndT = EndW + EndF + EndE
-
+        EndT = (EndW + EndF + EndE) * unitRatio
         Return EndT
-
     End Function
 End Class

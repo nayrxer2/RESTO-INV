@@ -76,6 +76,7 @@
     <Compile Include="Classes\clsInvInfo.vb" />
     <Compile Include="Classes\clsInvSheets.vb" />
     <Compile Include="Classes\clsInvDetails.vb" />
+    <Compile Include="Classes\clsItemUnit.vb" />
     <Compile Include="Classes\clsStoreSettings.vb" />
     <Compile Include="Classes\clsUser.vb" />
     <Compile Include="Forms\frmMain.vb">

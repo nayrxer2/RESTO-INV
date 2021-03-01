@@ -3,6 +3,7 @@
 
     Private Sub ucInventoryPage_Load(sender As Object, e As EventArgs) Handles Me.Load
         loadInvInfo()
+        '----fixed size for splitcontainer
         scMain.FixedPanel = FixedPanel.Panel1
         scMain.SplitterDistance = 190
         lvInvInfo.Sorting = SortOrder.Ascending
@@ -12,7 +13,7 @@
         _ucInventory.dgvInventory.Columns.Clear()
         _ucInventory.tslblInvNumberText.Text = lvInvInfo.FocusedItem.Tag
         _ucInventory.dgvInventory.Refresh()
-
+        '----load inventory sheet detail to datagridview
         modInventory.loadInvDet(_ucInventory.dgvInventory, lvInvInfo.FocusedItem.Tag, _ucInventory.tscbGName.Text)
 
         _ucInventory.dgvHeaderText()
@@ -59,14 +60,11 @@
                     lvInvInfo.Items.Add(oItem)
                 End With
             Next
-
+            '----manipulating size of listview
             lvInvInfo.TileSize = New Size(150, 55)
-            '--to add with property in listview
-            'If lvInvInfo.Items.Count > 0 Then
             lvInvInfo.Columns.Add(250)
             lvInvInfo.Columns.Add(250)
             lvInvInfo.Columns.Add(250)
-            'End If
 
             lvInvInfo.EndUpdate()
         Catch ex As Exception
