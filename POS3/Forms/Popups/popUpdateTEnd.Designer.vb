@@ -39,12 +39,14 @@ Partial Class popUpdateEnd
         Me.txtItemName = New System.Windows.Forms.TextBox()
         Me.lblRemark = New System.Windows.Forms.Label()
         Me.lblItemName = New System.Windows.Forms.Label()
+        Me.txtEndT = New System.Windows.Forms.TextBox()
         Me.pnlUpdateEnd.SuspendLayout()
         Me.SuspendLayout()
         '
         'pnlUpdateEnd
         '
         Me.pnlUpdateEnd.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.pnlUpdateEnd.Controls.Add(Me.txtEndT)
         Me.pnlUpdateEnd.Controls.Add(Me.lblItemCodeNum)
         Me.pnlUpdateEnd.Controls.Add(Me.lblItemCode)
         Me.pnlUpdateEnd.Controls.Add(Me.txtEndF)
@@ -225,6 +227,16 @@ Partial Class popUpdateEnd
         Me.lblItemName.TabIndex = 0
         Me.lblItemName.Text = "Item Name:"
         '
+        'txtEndT
+        '
+        Me.txtEndT.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtEndT.Location = New System.Drawing.Point(399, 135)
+        Me.txtEndT.Name = "txtEndT"
+        Me.txtEndT.Size = New System.Drawing.Size(78, 21)
+        Me.txtEndT.TabIndex = 33
+        Me.txtEndT.Text = "0"
+        Me.txtEndT.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
         'popUpdateEnd
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -258,4 +270,5 @@ Partial Class popUpdateEnd
     Friend WithEvents lblEndW As Label
     Friend WithEvents lblItemCodeNum As Label
     Friend WithEvents lblItemCode As Label
+    Friend WithEvents txtEndT As TextBox
 End Class
