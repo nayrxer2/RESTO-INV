@@ -56,10 +56,10 @@ Module modInventory
                                 .FLDInvID = Nothing
                             ElseIf IsDBNull(oReader("FLDInventoryNum")) Then
                                 .FLDInventoryNum = Nothing
-                                'ElseIf IsDBNull(oReader("FLDStoreID")) Then
-                                '    .FLDStoreID = Nothing
                             ElseIf IsDBNull(oReader("FLDItemCode")) Then
                                 .FLDItemCode = Nothing
+                                'ElseIf IsDBNull(oReader("FLDStoreID")) Then
+                                '    .FLDStoreID = Nothing
                             Else
                                 .FLDItemName = oReader("FLDItemName")
                                 .FLDGroupName = oReader("FLDGroupName")
@@ -249,6 +249,8 @@ Module modInventory
 
             'l.FLDDeliver,l.FLDTransfer, l.FLDReturn, l.FLDProdUsed, l.FLDProdMade,  l.FLDInvUsage, l.FLDPOSUsage, l.FLDMealUsage, l.FLDVariance, l.FLDUnitPrice,
             dgvInventory.DataSource = _arrInvDetail
+            dgvInventory.Columns("FLDItemName").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+            dgvInventory.Columns("FLDItemCode").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
 
         Catch ex As Exception
             MessageBox.Show(ex.Message + " " + "loadInvDet")

@@ -24,8 +24,8 @@ Partial Class ucInventory
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ucInventory))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.GroupToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.tscbGName = New System.Windows.Forms.ToolStripComboBox()
@@ -53,6 +53,7 @@ Partial Class ucInventory
         '
         'GroupToolStripMenuItem
         '
+        Me.GroupToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText
         Me.GroupToolStripMenuItem.Name = "GroupToolStripMenuItem"
         Me.GroupToolStripMenuItem.Size = New System.Drawing.Size(58, 23)
         Me.GroupToolStripMenuItem.Text = "Group :"
@@ -64,36 +65,37 @@ Partial Class ucInventory
         '
         'dgvInventory
         '
+        Me.dgvInventory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvInventory.BackgroundColor = System.Drawing.SystemColors.ControlLightLight
         Me.dgvInventory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Gray
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvInventory.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle7.BackColor = System.Drawing.Color.WhiteSmoke
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvInventory.DefaultCellStyle = DataGridViewCellStyle7
         Me.dgvInventory.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvInventory.GridColor = System.Drawing.SystemColors.ControlLight
         Me.dgvInventory.Location = New System.Drawing.Point(3, 30)
         Me.dgvInventory.MultiSelect = False
         Me.dgvInventory.Name = "dgvInventory"
         Me.dgvInventory.ReadOnly = True
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvInventory.RowHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvInventory.RowHeadersDefaultCellStyle = DataGridViewCellStyle8
         Me.dgvInventory.Size = New System.Drawing.Size(1300, 526)
         Me.dgvInventory.TabIndex = 3
         '
         'msInventory
         '
-        Me.msInventory.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.msInventory.BackColor = System.Drawing.Color.WhiteSmoke
         Me.msInventory.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GroupToolStripMenuItem, Me.tscbGName})
         Me.msInventory.Location = New System.Drawing.Point(3, 3)
         Me.msInventory.Name = "msInventory"
@@ -126,6 +128,7 @@ Partial Class ucInventory
         '
         'tsMenuInventory
         '
+        Me.tsMenuInventory.BackColor = System.Drawing.Color.DarkGoldenrod
         Me.tsMenuInventory.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tslblInvNumber, Me.tsbtnPost, Me.tslblInvNumberText})
         Me.tsMenuInventory.Location = New System.Drawing.Point(0, 0)
         Me.tsMenuInventory.Name = "tsMenuInventory"
@@ -138,6 +141,7 @@ Partial Class ucInventory
         '
         Me.tslblInvNumber.BackColor = System.Drawing.Color.White
         Me.tslblInvNumber.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tslblInvNumber.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.tslblInvNumber.LinkColor = System.Drawing.Color.White
         Me.tslblInvNumber.Name = "tslblInvNumber"
         Me.tslblInvNumber.Size = New System.Drawing.Size(94, 22)
@@ -148,6 +152,7 @@ Partial Class ucInventory
         Me.tsbtnPost.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
         Me.tsbtnPost.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
         Me.tsbtnPost.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tsbtnPost.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.tsbtnPost.Image = CType(resources.GetObject("tsbtnPost.Image"), System.Drawing.Image)
         Me.tsbtnPost.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.tsbtnPost.Name = "tsbtnPost"
@@ -157,6 +162,7 @@ Partial Class ucInventory
         'tslblInvNumberText
         '
         Me.tslblInvNumberText.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tslblInvNumberText.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.tslblInvNumberText.Name = "tslblInvNumberText"
         Me.tslblInvNumberText.Size = New System.Drawing.Size(39, 22)
         Me.tslblInvNumberText.Text = "0000"

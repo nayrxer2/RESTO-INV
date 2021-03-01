@@ -92,4 +92,5 @@ Public Class ucInventory
     Private Sub tsbtnPost_Click(sender As Object, e As EventArgs) Handles tsbtnPost.Click
 
     End Sub
+
 End Class

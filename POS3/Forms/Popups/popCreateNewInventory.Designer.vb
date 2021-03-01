@@ -41,9 +41,9 @@ Partial Class popCreateNewInventory
         Me.lblDateIDStart = New System.Windows.Forms.Label()
         Me.lblDateIDEnd = New System.Windows.Forms.Label()
         Me.pnlCreateInv = New System.Windows.Forms.Panel()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.btnCreate = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.pnlCreateInv.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -238,28 +238,8 @@ Partial Class popCreateNewInventory
         Me.pnlCreateInv.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.pnlCreateInv.Location = New System.Drawing.Point(3, 2)
         Me.pnlCreateInv.Name = "pnlCreateInv"
-        Me.pnlCreateInv.Size = New System.Drawing.Size(319, 372)
+        Me.pnlCreateInv.Size = New System.Drawing.Size(319, 393)
         Me.pnlCreateInv.TabIndex = 18
-        '
-        'btnCancel
-        '
-        Me.btnCancel.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCancel.Location = New System.Drawing.Point(225, 325)
-        Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(75, 28)
-        Me.btnCancel.TabIndex = 19
-        Me.btnCancel.Text = "Cancel"
-        Me.btnCancel.UseVisualStyleBackColor = True
-        '
-        'btnCreate
-        '
-        Me.btnCreate.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCreate.Location = New System.Drawing.Point(144, 325)
-        Me.btnCreate.Name = "btnCreate"
-        Me.btnCreate.Size = New System.Drawing.Size(75, 28)
-        Me.btnCreate.TabIndex = 18
-        Me.btnCreate.Text = "Create"
-        Me.btnCreate.UseVisualStyleBackColor = True
         '
         'Label1
         '
@@ -271,12 +251,40 @@ Partial Class popCreateNewInventory
         Me.Label1.TabIndex = 20
         Me.Label1.Text = "Create New Inventory"
         '
+        'btnCancel
+        '
+        Me.btnCancel.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.btnCancel.FlatAppearance.BorderSize = 0
+        Me.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCancel.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCancel.ForeColor = System.Drawing.SystemColors.Desktop
+        Me.btnCancel.Location = New System.Drawing.Point(144, 338)
+        Me.btnCancel.Name = "btnCancel"
+        Me.btnCancel.Size = New System.Drawing.Size(75, 28)
+        Me.btnCancel.TabIndex = 19
+        Me.btnCancel.Text = "Cancel"
+        Me.btnCancel.UseVisualStyleBackColor = False
+        '
+        'btnCreate
+        '
+        Me.btnCreate.BackColor = System.Drawing.Color.DarkGoldenrod
+        Me.btnCreate.FlatAppearance.BorderSize = 0
+        Me.btnCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCreate.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCreate.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.btnCreate.Location = New System.Drawing.Point(225, 338)
+        Me.btnCreate.Name = "btnCreate"
+        Me.btnCreate.Size = New System.Drawing.Size(75, 28)
+        Me.btnCreate.TabIndex = 18
+        Me.btnCreate.Text = "Create"
+        Me.btnCreate.UseVisualStyleBackColor = False
+        '
         'popCreateNewInventory
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Black
-        Me.ClientSize = New System.Drawing.Size(324, 377)
+        Me.ClientSize = New System.Drawing.Size(324, 398)
         Me.Controls.Add(Me.pnlCreateInv)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "popCreateNewInventory"

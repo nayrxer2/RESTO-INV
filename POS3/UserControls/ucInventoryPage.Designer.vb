@@ -22,30 +22,17 @@ Partial Class ucInventoryPage
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.scMain = New System.Windows.Forms.SplitContainer()
         Me.lvInvInfo = New System.Windows.Forms.ListView()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.CreateNewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RefreshToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
+        Me.scMain = New System.Windows.Forms.SplitContainer()
+        Me.MenuStrip1.SuspendLayout()
         CType(Me.scMain, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.scMain.Panel1.SuspendLayout()
         Me.scMain.SuspendLayout()
-        Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'scMain
-        '
-        Me.scMain.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.scMain.Location = New System.Drawing.Point(0, 0)
-        Me.scMain.Name = "scMain"
-        '
-        'scMain.Panel1
-        '
-        Me.scMain.Panel1.Controls.Add(Me.lvInvInfo)
-        Me.scMain.Panel1.Controls.Add(Me.MenuStrip1)
-        Me.scMain.Size = New System.Drawing.Size(869, 557)
-        Me.scMain.SplitterDistance = 289
-        Me.scMain.TabIndex = 0
         '
         'lvInvInfo
         '
@@ -57,14 +44,14 @@ Partial Class ucInventoryPage
         Me.lvInvInfo.HideSelection = False
         Me.lvInvInfo.Location = New System.Drawing.Point(0, 24)
         Me.lvInvInfo.Name = "lvInvInfo"
-        Me.lvInvInfo.Size = New System.Drawing.Size(289, 533)
+        Me.lvInvInfo.Size = New System.Drawing.Size(289, 511)
         Me.lvInvInfo.TabIndex = 4
         Me.lvInvInfo.UseCompatibleStateImageBehavior = False
         Me.lvInvInfo.View = System.Windows.Forms.View.Tile
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.MenuStrip1.BackColor = System.Drawing.Color.DarkGoldenrod
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CreateNewToolStripMenuItem, Me.RefreshToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
@@ -81,30 +68,56 @@ Partial Class ucInventoryPage
         '
         'RefreshToolStripMenuItem
         '
+        Me.RefreshToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.RefreshToolStripMenuItem.Name = "RefreshToolStripMenuItem"
         Me.RefreshToolStripMenuItem.Size = New System.Drawing.Size(58, 20)
         Me.RefreshToolStripMenuItem.Text = "Refresh"
+        '
+        'StatusStrip1
+        '
+        Me.StatusStrip1.BackColor = System.Drawing.Color.LightGray
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 535)
+        Me.StatusStrip1.Name = "StatusStrip1"
+        Me.StatusStrip1.Size = New System.Drawing.Size(869, 22)
+        Me.StatusStrip1.TabIndex = 0
+        Me.StatusStrip1.Text = "StatusStrip1"
+        '
+        'scMain
+        '
+        Me.scMain.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.scMain.Location = New System.Drawing.Point(0, 0)
+        Me.scMain.Name = "scMain"
+        '
+        'scMain.Panel1
+        '
+        Me.scMain.Panel1.Controls.Add(Me.lvInvInfo)
+        Me.scMain.Panel1.Controls.Add(Me.MenuStrip1)
+        Me.scMain.Size = New System.Drawing.Size(869, 535)
+        Me.scMain.SplitterDistance = 289
+        Me.scMain.TabIndex = 1
         '
         'ucInventoryPage
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.scMain)
+        Me.Controls.Add(Me.StatusStrip1)
         Me.Name = "ucInventoryPage"
         Me.Size = New System.Drawing.Size(869, 557)
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
         Me.scMain.Panel1.ResumeLayout(False)
         Me.scMain.Panel1.PerformLayout()
         CType(Me.scMain, System.ComponentModel.ISupportInitialize).EndInit()
         Me.scMain.ResumeLayout(False)
-        Me.MenuStrip1.ResumeLayout(False)
-        Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents scMain As SplitContainer
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents CreateNewToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RefreshToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents lvInvInfo As ListView
+    Friend WithEvents StatusStrip1 As StatusStrip
+    Friend WithEvents scMain As SplitContainer
 End Class

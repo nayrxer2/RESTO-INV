@@ -28,26 +28,26 @@ Public Class clsInvDetails
     Public FLDInventoryNum As Integer
     Public FLDStoreID As Integer
 
-    Public Function updateInvDetails(FLDInventoryNum, FLDItemCode)
-        Dim list As List(Of clsInvDetails) = New List(Of clsInvDetails)
-        Dim squery As String = "UPDATE TBLInvDetail SET FLDInvEndW = @FLDInvEndW, FLDInvEndF = @FLDInvEndF, FLDInvEndE = @FLDInvEndE, FLDInvEndT = @FLDInvEndT WHERE FLDInventoryNum =" & FLDInventoryNum & "AND FLDItemCode =" & FLDItemCode
-        Using oConnection As New SqlConnection(modGeneral.DBconnection)
-            Try
-                oConnection.Open()
-                Using oCommand As New SqlCommand
-                    With oCommand
-                        .Parameters.AddWithValue("@FLDInvEndW", FLDInvEndW)
-                        .Parameters.AddWithValue("@FLDInvEndF", FLDInvEndF)
-                        .Parameters.AddWithValue("@FLDInvEndE", FLDInvEndE)
-                        .Parameters.AddWithValue("@FLDInvEndT", FLDInvEndT)
-                        .ExecuteNonQuery()
-                        Return True
-                    End With
-                End Using
-            Catch ex As Exception
-                MessageBox.Show(ex.Message)
-            End Try
-            Return True
-        End Using
+    Public Function updateInvDetails() As Boolean
+        'Dim list As List(Of clsInvDetails) = New List(Of clsInvDetails)
+        'Dim squery As String = "UPDATE TBLInvDetail SET FLDInvEndW = @FLDInvEndW, FLDInvEndF = @FLDInvEndF, FLDInvEndE = @FLDInvEndE, FLDInvEndT = @FLDInvEndT WHERE FLDInvID =" &
+        'Using oConnection As New SqlConnection(modGeneral.DBconnection)
+        '    Try
+        '        oConnection.Open()
+        '        Using oCommand As New SqlCommand
+        '            With oCommand
+        '                .Parameters.AddWithValue("@FLDInvEndW", FLDInvEndW)
+        '                .Parameters.AddWithValue("@FLDInvEndF", FLDInvEndF)
+        '                .Parameters.AddWithValue("@FLDInvEndE", FLDInvEndE)
+        '                .Parameters.AddWithValue("@FLDInvEndT", FLDInvEndT)
+        '                .ExecuteNonQuery()
+        '                Return True
+        '            End With
+        '        End Using
+        '    Catch ex As Exception
+        '        MessageBox.Show(ex.Message)
+        '    End Try
+        '    Return True
+        'End Using
     End Function
 End Class
