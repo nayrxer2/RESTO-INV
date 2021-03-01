@@ -15,15 +15,27 @@
 
     Dim EndW As Integer
     Dim EndF As Integer
-    Dim EndE As Integer
+    Dim EndX As Integer
+    Dim itemCode As String
     Dim EndT As Decimal
     Dim unitRatio As Decimal
 
+    Dim RatioW = 0
+    Dim RatioF = 0
+    Dim RatioX = 0
+
     Private Sub btnConfirm_Click(sender As Object, e As EventArgs) Handles btnConfirm.Click
+        itemCode = lblItemCodeNum.Text
+
         EndW = txtEndW.Text
         EndF = txtEndF.Text
-        EndE = txtEndX.Text
+        EndX = txtEndX.Text
 
+        getUnitRatio(itemCode)
+
+        EndT = (EndW * RatioW) + (EndF * RatioF) + (EndX * RatioX)
+
+        txtEndT.Text = EndT
 
         'Dim unitRatioW = getUnitRatio("101238", "W")
         'If computeTotalEnding(EndW, EndF, EndE) Then
@@ -47,19 +59,37 @@
         'End If
     End Sub
 
-    Public Function getUnitRatio(ItemCode As String, UnitAssign As String)
+    Public Sub getUnitRatio(ItemCode As String)
         Dim arrItemUnit = getItemUnit()
+        Dim unitRatio
 
-        Dim uRatio = (From u In arrItemUnit
-                      Where u.FLDItemCode = ItemCode And u.FLDUnitAssign = UnitAssign
-                      Select u).Single
+        '---retrieve applicable unit assign
+        Dim arrUnitAssign = (From u In arrItemUnit
+                             Where u.FLDItemCode = ItemCode
+                             Select u)
 
-        Return uRatio.FLDUnitRatio
-    End Function
+        '---query each unit assign and store values respectively
+        For Each i In arrUnitAssign
+            Select Case i.FLDUnitAssign
+                Case "W"
+                    unitRatio = (From u In arrItemUnit
+                                 Where u.FLDItemCode = ItemCode And u.FLDUnitAssign = "W"
+                                 Select u.FLDUnitRatio).Single
+                    RatioW = unitRatio
 
-    Public Function computeTotalEnding(EndW, EndF, EndE)
+                Case "F"
+                    unitRatio = (From u In arrItemUnit
+                                 Where u.FLDItemCode = ItemCode And u.FLDUnitAssign = "F"
+                                 Select u.FLDUnitRatio).Single
+                    RatioF = unitRatio
+                Case "X"
+                    unitRatio = (From u In arrItemUnit
+                                 Where u.FLDItemCode = ItemCode And u.FLDUnitAssign = "X"
+                                 Select u.FLDUnitRatio).Single
+                    RatioX = unitRatio
+            End Select
+        Next
 
-        EndT = (EndW + EndF + EndE) * unitRatio
-        Return EndT
-    End Function
+
+    End Sub
 End Class
