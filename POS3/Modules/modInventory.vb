@@ -18,6 +18,7 @@ Module modInventory
     Public arrInvDetail As List(Of clsInvDetails) = getInvDetail()
     Public arrInvInfo As List(Of clsInvSheets) = getInvInfo()
     Public arrStoreSettings As List(Of clsStoreSettings) = getStoreSettings()
+    Public arrItemUnit As List(Of clsItemUnit) = getItemUnit()
 #End Region
 
 #Region "SQL to Classes"
@@ -158,6 +159,35 @@ Module modInventory
         Return list
     End Function
 
+    Public Function getItemUnit() As List(Of clsItemUnit)
+        sQuery = "SELECT * FROM TBLItemUnit"
+        'Dim sQuery As String = "SELECT * FROM TBLItemUnit where FLDItemCode =" & FLDItemCode
+        Dim list As List(Of clsItemUnit) = New List(Of clsItemUnit)
+        Dim cIU As clsItemUnit
+        Using oConnection As New SqlConnection(modGeneral.DBconnection())
+            Try
+                oConnection.Open()
+                Using oCommand As New SqlCommand(sQuery, oConnection)
+                    Dim oReader As SqlDataReader = oCommand.ExecuteReader
+                    While oReader.Read
+                        cIU = New clsItemUnit
+                        With cIU
+                            .FLDItemCode = oReader("FLDItemCode")
+                            .FLDItemName = oReader("FLDItemName")
+                            .FLDUnitCode = oReader("FLDUnitCode")
+                            .FLDUnitName = oReader("FLDUnitName")
+                            .FLDUnitRatio = oReader("FLDUnitRatio")
+                            .FLDUnitAssign = oReader("FLDUnitAssign")
+                            list.Add(cIU)
+                        End With
+                    End While
+                End Using
+            Catch ex As Exception
+                MsgBox(ex.Message + ":" + "Fetching unit ratio")
+            End Try
+        End Using
+        Return list
+    End Function
     'Public Function createInventory() As Boolean
     '    Dim list As List(Of clsInvInfo) = New List(Of clsInvInfo)
     '    'Dim sQuery As String = "INSERT INTO TBLInvInfo

@@ -5,6 +5,7 @@
         Me.CenterToScreen()
         _ucTitle.Dock = DockStyle.Top
         pnlUpdateEnd.Controls.Add(_ucTitle)
+
     End Sub
 
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
@@ -24,26 +25,37 @@
         EndE = txtEndX.Text
 
 
-        If computeTotalEnding(EndW, EndF, EndE) Then
+        'Dim unitRatioW = getUnitRatio("101238", "W")
+        'If computeTotalEnding(EndW, EndF, EndE) Then
 
-            Dim cls As New clsInvDetails With {
-            .FLDInvEndW = EndW,
-            .FLDInvEndF = EndF,
-            .FLDInvEndE = EndE,
-            .FLDInvEndT = EndT
-            }
+        '    Dim cls As New clsInvDetails With {
+        '    .FLDInvEndW = EndW,
+        '    .FLDInvEndF = EndF,
+        '    .FLDInvEndE = EndE,
+        '    .FLDInvEndT = EndT
+        '    }
 
-            MessageBox.Show("YES BITCH")
-            modInventory.loadInvDet(_ucInventory.dgvInventory, _ucInventory.tslblInvNumberText.Text, _ucInventory.tscbGName.Text)
-            MessageBox.Show(EndT)
-            Me.Close()
-        End If
+        '    MessageBox.Show("YES BITCH")
+        '    'modInventory.loadInvDet(_ucInventory.dgvInventory, _ucInventory.tslblInvNumberText.Text, _ucInventory.tscbGName.Text)
+        '    MessageBox.Show(EndT)
+        '    Me.Close()
+        'End If
 
         'If cls.updateInvDetails() = True Then
         '    Me.Close()
         '    modInventory.loadInvDet(_ucInventory.dgvInventory, _ucInventory.tslblInvNumberText.Text, _ucInventory.tscbGName.Text)
         'End If
     End Sub
+
+    Public Function getUnitRatio(ItemCode As String, UnitAssign As String)
+        Dim arrItemUnit = getItemUnit()
+
+        Dim uRatio = (From u In arrItemUnit
+                      Where u.FLDItemCode = ItemCode And u.FLDUnitAssign = UnitAssign
+                      Select u).Single
+
+        Return uRatio.FLDUnitRatio
+    End Function
 
     Public Function computeTotalEnding(EndW, EndF, EndE)
 
