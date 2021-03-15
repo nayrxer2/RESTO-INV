@@ -3,6 +3,7 @@ Imports System.IO
 Imports System.Drawing
 Module modInventory
     Public _ucNav As New ucNav
+
     Public listOfInv As String() = {"Return", "Delivery", "Ordering", "Receive", "Transfer", "Inventory"}
 
     Public colorTextRed As Color = ColorTranslator.FromHtml("#F44336")
@@ -19,6 +20,7 @@ Module modInventory
     Public arrInvInfo As List(Of clsInvSheets) = getInvInfo()
     Public arrStoreSettings As List(Of clsStoreSettings) = getStoreSettings()
     Public arrItemUnit As List(Of clsItemUnit) = getItemUnit()
+    Public arrGrpName As List(Of clsGrpName) = getGrpName()
 #End Region
 
 #Region "SQL to Classes"
@@ -262,10 +264,35 @@ Module modInventory
     '    End Using
     '    Return False
     'End Function
+
+    Public Function getGrpName() As List(Of clsGrpName)
+        sQuery = "SELECT * FROM TBLGroup WHERE FLDGStatus = 1"
+        Dim list As List(Of clsGrpName) = New List(Of clsGrpName)
+        Dim GrpName As clsGrpName
+        Using oConnection As New SqlConnection(modGeneral.DBconnection())
+            Try
+                oConnection.Open()
+                Using oCommand As New SqlCommand(sQuery, oConnection)
+                    Dim oReader As SqlDataReader = oCommand.ExecuteReader
+                    While oReader.Read
+                        GrpName = New clsGrpName
+                        With GrpName
+                            .FLDGCode = oReader("FLDGCode")
+                            .FLDGName = oReader("FLDGName")
+                            .FLDGType = oReader("FLDGType")
+                            list.Add(GrpName)
+                        End With
+                    End While
+                End Using
+            Catch ex As Exception
+                MsgBox(ex.Message + ":" + "GroupName")
+            End Try
+        End Using
+        Return list
+    End Function
 #End Region
 
 #Region "LINQ & Functions"
-
     '-----display inventory details onto datagridview
     Public Sub loadInvDet(dgvInventory As DataGridView, invID As Integer, invGName As String)
         Try
@@ -286,7 +313,6 @@ Module modInventory
             MessageBox.Show(ex.Message + " " + "loadInvDet")
         End Try
     End Sub
-
 #End Region
 
 #Region "Logs"

@@ -17,9 +17,27 @@ Public Class popCreateNewInventory
 
         'txtInvNumber.Text = CStr(_arrInvInfo)
         txtInvRefNum.Text = CStr(_arrInvInfo)
+
+
+        'Dim arr = getInvInfo()
+
+        'Dim list = (From l In arr
+        '            Order By l.FLDinvID Descending
+        '            Select l).First
+
+        'Dim invIDstatus = list
+
+        'Dim cls As New clsInvInfo
+        'Dim arrcls As List(Of clsInvInfo) = cls.checkStatus()
+
+        'Dim sQuery = From i In arrcls
+        '             Where i.FLDInvID = CInt(invIDstatus)
+        '             Select i.FLDStatus
     End Sub
 
     Private Sub btnCreate_Click(sender As Object, e As EventArgs) Handles btnCreate.Click
+        Dim uc As New ucInventoryPage
+
         Try
             Dim _firstStoreID = (From sSet
                                  In arrStoreSettings
@@ -41,15 +59,17 @@ Public Class popCreateNewInventory
             }
 
             If _clsInvInfo.createInventory() Then
-                MessageBox.Show("YES you made it!")
+                MessageBox.Show("Successfully created!")
+
                 'frmMain.loadInvInfo()
                 Me.Close()
             Else
-                MessageBox.Show("sala ubra mo")
+                MessageBox.Show("")
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
+        uc.loadInvInfo()
     End Sub
 
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click

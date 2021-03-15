@@ -73,6 +73,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\clsGrpName.vb" />
     <Compile Include="Classes\clsInvInfo.vb" />
     <Compile Include="Classes\clsInvSheets.vb" />
     <Compile Include="Classes\clsInvDetails.vb" />

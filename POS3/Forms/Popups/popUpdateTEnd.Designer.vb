@@ -23,6 +23,7 @@ Partial Class popUpdateEnd
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.pnlUpdateEnd = New System.Windows.Forms.Panel()
+        Me.txtStart = New System.Windows.Forms.TextBox()
         Me.lblItemCodeNum = New System.Windows.Forms.Label()
         Me.lblItemCode = New System.Windows.Forms.Label()
         Me.txtEndF = New System.Windows.Forms.TextBox()
@@ -39,14 +40,13 @@ Partial Class popUpdateEnd
         Me.txtItemName = New System.Windows.Forms.TextBox()
         Me.lblRemark = New System.Windows.Forms.Label()
         Me.lblItemName = New System.Windows.Forms.Label()
-        Me.txtEndT = New System.Windows.Forms.TextBox()
         Me.pnlUpdateEnd.SuspendLayout()
         Me.SuspendLayout()
         '
         'pnlUpdateEnd
         '
         Me.pnlUpdateEnd.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.pnlUpdateEnd.Controls.Add(Me.txtEndT)
+        Me.pnlUpdateEnd.Controls.Add(Me.txtStart)
         Me.pnlUpdateEnd.Controls.Add(Me.lblItemCodeNum)
         Me.pnlUpdateEnd.Controls.Add(Me.lblItemCode)
         Me.pnlUpdateEnd.Controls.Add(Me.txtEndF)
@@ -68,6 +68,16 @@ Partial Class popUpdateEnd
         Me.pnlUpdateEnd.Name = "pnlUpdateEnd"
         Me.pnlUpdateEnd.Size = New System.Drawing.Size(492, 370)
         Me.pnlUpdateEnd.TabIndex = 0
+        '
+        'txtStart
+        '
+        Me.txtStart.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtStart.Location = New System.Drawing.Point(91, 135)
+        Me.txtStart.Name = "txtStart"
+        Me.txtStart.Size = New System.Drawing.Size(78, 21)
+        Me.txtStart.TabIndex = 33
+        Me.txtStart.Text = "0"
+        Me.txtStart.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'lblItemCodeNum
         '
@@ -92,7 +102,7 @@ Partial Class popUpdateEnd
         'txtEndF
         '
         Me.txtEndF.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtEndF.Location = New System.Drawing.Point(194, 135)
+        Me.txtEndF.Location = New System.Drawing.Point(296, 135)
         Me.txtEndF.Name = "txtEndF"
         Me.txtEndF.Size = New System.Drawing.Size(78, 21)
         Me.txtEndF.TabIndex = 29
@@ -103,7 +113,7 @@ Partial Class popUpdateEnd
         '
         Me.lblEndF.AutoSize = True
         Me.lblEndF.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEndF.Location = New System.Drawing.Point(191, 119)
+        Me.lblEndF.Location = New System.Drawing.Point(293, 119)
         Me.lblEndF.Name = "lblEndF"
         Me.lblEndF.Size = New System.Drawing.Size(43, 13)
         Me.lblEndF.TabIndex = 28
@@ -112,7 +122,7 @@ Partial Class popUpdateEnd
         'txtEndX
         '
         Me.txtEndX.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtEndX.Location = New System.Drawing.Point(297, 135)
+        Me.txtEndX.Location = New System.Drawing.Point(399, 135)
         Me.txtEndX.Name = "txtEndX"
         Me.txtEndX.Size = New System.Drawing.Size(78, 21)
         Me.txtEndX.TabIndex = 27
@@ -123,7 +133,7 @@ Partial Class popUpdateEnd
         '
         Me.lblEndX.AutoSize = True
         Me.lblEndX.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEndX.Location = New System.Drawing.Point(295, 119)
+        Me.lblEndX.Location = New System.Drawing.Point(397, 119)
         Me.lblEndX.Name = "lblEndX"
         Me.lblEndX.Size = New System.Drawing.Size(45, 13)
         Me.lblEndX.TabIndex = 26
@@ -132,7 +142,7 @@ Partial Class popUpdateEnd
         'txtEndW
         '
         Me.txtEndW.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtEndW.Location = New System.Drawing.Point(91, 135)
+        Me.txtEndW.Location = New System.Drawing.Point(193, 135)
         Me.txtEndW.Name = "txtEndW"
         Me.txtEndW.Size = New System.Drawing.Size(78, 21)
         Me.txtEndW.TabIndex = 25
@@ -143,7 +153,7 @@ Partial Class popUpdateEnd
         '
         Me.lblEndW.AutoSize = True
         Me.lblEndW.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEndW.Location = New System.Drawing.Point(89, 119)
+        Me.lblEndW.Location = New System.Drawing.Point(191, 119)
         Me.lblEndW.Name = "lblEndW"
         Me.lblEndW.Size = New System.Drawing.Size(48, 13)
         Me.lblEndW.TabIndex = 24
@@ -227,16 +237,6 @@ Partial Class popUpdateEnd
         Me.lblItemName.TabIndex = 0
         Me.lblItemName.Text = "Item Name:"
         '
-        'txtEndT
-        '
-        Me.txtEndT.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtEndT.Location = New System.Drawing.Point(399, 135)
-        Me.txtEndT.Name = "txtEndT"
-        Me.txtEndT.Size = New System.Drawing.Size(78, 21)
-        Me.txtEndT.TabIndex = 33
-        Me.txtEndT.Text = "0"
-        Me.txtEndT.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
         'popUpdateEnd
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -270,5 +270,5 @@ Partial Class popUpdateEnd
     Friend WithEvents lblEndW As Label
     Friend WithEvents lblItemCodeNum As Label
     Friend WithEvents lblItemCode As Label
-    Friend WithEvents txtEndT As TextBox
+    Friend WithEvents txtStart As TextBox
 End Class

@@ -17,6 +17,7 @@ Public Class clsInvDetails
     Public FLDInvEndF As Single
     Public FLDInvEndE As Single
     Public FLDInvEndT As Single
+
     Public FLDInvUsage As Single
     Public FLDPOSUsage As Single
     Public FLDMealUsage As Single
@@ -28,26 +29,28 @@ Public Class clsInvDetails
     Public FLDInventoryNum As Integer
     Public FLDStoreID As Integer
 
-    Public Function updateInvDetails() As Boolean
-        'Dim list As List(Of clsInvDetails) = New List(Of clsInvDetails)
-        'Dim squery As String = "UPDATE TBLInvDetail SET FLDInvEndW = @FLDInvEndW, FLDInvEndF = @FLDInvEndF, FLDInvEndE = @FLDInvEndE, FLDInvEndT = @FLDInvEndT WHERE FLDInvID =" &
-        'Using oConnection As New SqlConnection(modGeneral.DBconnection)
-        '    Try
-        '        oConnection.Open()
-        '        Using oCommand As New SqlCommand
-        '            With oCommand
-        '                .Parameters.AddWithValue("@FLDInvEndW", FLDInvEndW)
-        '                .Parameters.AddWithValue("@FLDInvEndF", FLDInvEndF)
-        '                .Parameters.AddWithValue("@FLDInvEndE", FLDInvEndE)
-        '                .Parameters.AddWithValue("@FLDInvEndT", FLDInvEndT)
-        '                .ExecuteNonQuery()
-        '                Return True
-        '            End With
-        '        End Using
-        '    Catch ex As Exception
-        '        MessageBox.Show(ex.Message)
-        '    End Try
-        '    Return True
-        'End Using
+    Public Function updateInvDetails(itemCode As String, invIDNum As Integer) As Boolean
+        Dim list As List(Of clsInvDetails) = New List(Of clsInvDetails)
+        Dim squery As String = "UPDATE TBLInvDetail SET FLDRemarks = @FLDRemarks, FLDStart = @FLDStart, FLDInvEndW = @FLDInvEndW, FLDInvEndF = @FLDInvEndF, FLDInvEndE = @FLDInvEndE, FLDInvEndT = @FLDInvEndT WHERE FLDInvID =" & invIDNum & "AND FLDItemCode  ='" & itemCode & "'"
+        Using oConnection As New SqlConnection(modGeneral.DBconnection)
+            Try
+                oConnection.Open()
+                Using oCommand As New SqlCommand(squery, oConnection)
+                    With oCommand
+                        .Parameters.AddWithValue("@FLDStart", FLDStart)
+                        .Parameters.AddWithValue("@FLDInvEndW", FLDInvEndW)
+                        .Parameters.AddWithValue("@FLDInvEndF", FLDInvEndF)
+                        .Parameters.AddWithValue("@FLDInvEndE", FLDInvEndE)
+                        .Parameters.AddWithValue("@FLDInvEndT", FLDInvEndT)
+                        .Parameters.AddWithValue("@FLDRemarks", FLDRemarks)
+                        .ExecuteNonQuery()
+                        Return True
+                    End With
+                End Using
+            Catch ex As Exception
+                MessageBox.Show(ex.Message + "updateInvDetails")
+            End Try
+            Return False
+        End Using
     End Function
 End Class

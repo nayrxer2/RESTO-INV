@@ -12,16 +12,12 @@ Public Class clsInvInfo
     Public FLDDateIDEnd As Integer
     Public FLDStoreID As Integer
 
-    Public invStatus As String
-    Public invSheetID As Integer
+    '----> table TBLInvStatus
+    Public FLDStatus As String
+    'Public invSheetID As Integer
+
     Public Function createInventory() As Boolean
         Dim list As List(Of clsInvInfo) = New List(Of clsInvInfo)
-        'Dim sQuery As String = "INSERT INTO TBLInvInfo
-        '                                    (FLDInvID, FLDInventoryNum, FLDInvRef, FLDDelRef, FLDTransRef, 
-        '                                    FLDRetRef, FLDDtTmStart, FLDDtTmEnd, FLDDateIDStart, FLDDateIDEnd, FLDStoreID)
-        '                        VALUES (((SELECT COUNT(*) FROM [TBLInvInfo])+1), @FLDInventoryNum, @FLDInvRef, @FLDDelRef,
-        '                                    @FLDTransRef, @FLDRetRef, @FLDDtTmStart, @FLDDtTmEnd, @FLDDateIDStart, 
-        '                                    @FLDDateIDEnd, @FLDStoreID)"
         Using oConnection As New SqlConnection(modGeneral.DBconnection())
             Try
                 oConnection.Open()
@@ -51,27 +47,48 @@ Public Class clsInvInfo
         End Using
     End Function
 
-    Public Function updateInvStatus(invSheetID As String, invStatus As Integer)
+    Public Function updateInvStatus()
         Dim listUpdate As List(Of clsInvInfo) = New List(Of clsInvInfo)
         Dim sQuery As String = "INSERT INTO TBLInvStatus (FLDStatus, FLDInvID) VALUES (@FLDStatus, @FLDInvID)"
-        If MessageBox.Show("Are you sure you want to proceed to POST?") Then
-
-            Using oConnection As New SqlConnection(modGeneral.DBconnection())
-                Try
-                    oConnection.Open()
-                    Using oCommand As New SqlCommand(sQuery, oConnection)
-                        With oCommand
-                            .Parameters.AddWithValue("@FLDStatus", invStatus)
-                            .Parameters.AddWithValue("@invStatus", invSheetID)
-                            .ExecuteNonQuery()
-                            Return True
+        Using oConnection As New SqlConnection(modGeneral.DBconnection())
+            Try
+                oConnection.Open()
+                Using oCommand As New SqlCommand(sQuery, oConnection)
+                    With oCommand
+                        .Parameters.AddWithValue("@FLDStatus", FLDStatus)
+                        .Parameters.AddWithValue("@FLDInvID", FLDInvID)
+                        .ExecuteNonQuery()
+                        Return True
+                    End With
+                End Using
+            Catch ex As Exception
+                MessageBox.Show(ex.Message + " " + "updateInvStatus")
+            End Try
+        End Using
+        Return False
+    End Function
+    Public Function checkStatus() As List(Of clsInvInfo)
+        Dim listUpdate As List(Of clsInvInfo) = New List(Of clsInvInfo)
+        Dim squery As String = "SELECT * FROM TBLInvStatus"
+        Using oConnection As New SqlConnection(modGeneral.DBconnection())
+            Try
+                oConnection.Open()
+                Using oCommand As New SqlCommand(squery, oConnection)
+                    Dim oReader As SqlDataReader = oCommand.ExecuteReader
+                    Dim lu As clsInvInfo
+                    While oReader.Read
+                        lu = New clsInvInfo
+                        With lu
+                            .FLDStatus = oReader("FLDStatus")
+                            .FLDInvID = oReader("FLDInvID")
+                            listUpdate.Add(lu)
                         End With
-                    End Using
-                Catch ex As Exception
-                    MessageBox.Show(ex.Message)
-                End Try
-            End Using
-            Return False
-        End If
+                    End While
+                End Using
+            Catch ex As Exception
+                MessageBox.Show(ex.Message + " " + "checkStatus")
+            End Try
+            Return listUpdate
+        End Using
     End Function
 End Class

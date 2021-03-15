@@ -37,6 +37,7 @@ Public Class ucInventory
         loadGName()
 
         tcInventory.TabPages(0).Text = "Inventory Sheet"
+        '----insert function here to disable cell content click
     End Sub
 
     '-----get groupname to combobox
@@ -78,19 +79,54 @@ Public Class ucInventory
         If e.RowIndex < 0 Then Exit Sub
         If dgvInventory.Columns(e.ColumnIndex).Name <> "FLDInvEndT" Then Exit Sub '"FLDInvEndW" Or "FLDInvEndF" Or "FLDInvEndX" Or 
 
-        Using frm As New popUpdateEnd
-            frm.txtItemName.Text = dgvInventory.CurrentRow.Cells("FLDItemName").Value.ToString
-            frm.txtEndW.Text = dgvInventory.CurrentRow.Cells("FLDInvEndW").Value.ToString
-            frm.txtEndF.Text = dgvInventory.CurrentRow.Cells("FLDInvEndF").Value.ToString
-            frm.txtEndX.Text = dgvInventory.CurrentRow.Cells("FLDInvEndE").Value.ToString
-            frm.lblItemCodeNum.Text = dgvInventory.CurrentRow.Cells("FLDItemCode").Value.ToString
-            frm.lblInvNumberNum.Text = tslblInvNumberText.Text
-            frm.ShowDialog()
-        End Using
+        Dim _ucPage As New ucInventoryPage
+        Dim cls As New clsInvInfo
+        Dim arrcls As List(Of clsInvInfo) = cls.checkStatus()
+
+        Dim _arrcls = (From l In arrcls
+                       Where l.FLDInvID = tslblInvNumberText.Text
+                       Select l.FLDStatus).SingleOrDefault
+
+        If _arrcls <> "POSTED" Then
+            Using frm As New popUpdateEnd
+                If dgvInventory.CurrentRow.Cells("FLDStart").Value.ToString <> "0" Then
+                    frm.txtStart.Enabled = False
+                Else
+                    frm.txtStart.Enabled = True
+                    frm.txtEndW.Enabled = False
+                    frm.txtEndF.Enabled = False
+                    frm.txtEndX.Enabled = False
+                End If
+                frm.txtStart.Text = dgvInventory.CurrentRow.Cells("FLDStart").Value.ToString
+                frm.txtItemName.Text = dgvInventory.CurrentRow.Cells("FLDItemName").Value.ToString
+                frm.txtEndW.Text = dgvInventory.CurrentRow.Cells("FLDInvEndW").Value.ToString
+                frm.txtEndF.Text = dgvInventory.CurrentRow.Cells("FLDInvEndF").Value.ToString
+                frm.txtEndX.Text = dgvInventory.CurrentRow.Cells("FLDInvEndE").Value.ToString
+                frm.lblItemCodeNum.Text = dgvInventory.CurrentRow.Cells("FLDItemCode").Value.ToString
+                frm.itemCode = dgvInventory.CurrentRow.Cells("FLDItemCode").Value.ToString
+                frm.txtRemarks.Text = dgvInventory.CurrentRow.Cells("FLDRemarks").Value.ToString
+                frm.lblItemCodeNum.Tag = tscbGName.Text
+                frm.lblInvNumberNum.Text = tslblInvNumberText.Text
+                If frm.ShowDialog() = Windows.Forms.DialogResult.OK Then
+                    modInventory.loadInvDet(dgvInventory, tslblInvNumberText.Text, tscbGName.Text)
+                End If
+            End Using
+        ElseIf _arrcls = "POSTED" Then
+            MessageBox.Show("This sheet is already posted")
+        End If
     End Sub
 
     Private Sub tsbtnPost_Click(sender As Object, e As EventArgs) Handles tsbtnPost.Click
-
+        Dim cls As New clsInvInfo
+        Dim uc As New ucInventoryPage
+        If MessageBox.Show("This action is cannot be undone, are you sure?") Then
+            cls.FLDInvID = tslblInvNumberText.Text
+            cls.FLDStatus = "POSTED"
+            tsbtnPost.Enabled = False
+            If cls.updateInvStatus() = True Then
+                uc.loadInvInfo()
+                MessageBox.Show("This inventory sheet #" + tslblInvNumberText.Text + " is posted!")
+            End If
+        End If
     End Sub
-
 End Class
