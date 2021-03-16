@@ -3,6 +3,7 @@ Public Class popCreateNewInventory
 
     Public _ucTitle As New ucTitle
     Public _ucInventory As ucInventory
+    Public _ucIp As New ucInventoryPage
 
     Private Sub popCreateNewInventory_Load(sender As Object, e As EventArgs) Handles Me.Load
         dtpDateStart.CustomFormat = "MM-dd-yyyy hh:mm:ss tt"
@@ -33,11 +34,45 @@ Public Class popCreateNewInventory
         'Dim sQuery = From i In arrcls
         '             Where i.FLDInvID = CInt(invIDstatus)
         '             Select i.FLDStatus
+
+    End Sub
+
+
+    Public Sub loadInvInfo(lvInvInfo As ListView)
+        lvInvInfo.BeginUpdate()
+        lvInvInfo.Clear()
+        '---> insert query to check invstatus posted/not
+        Try
+            '---retrieves the inventory info from the Array and stores it in a List.
+            arrInvInfo = getInvInfo()
+            Dim _arrInvInfo = (From i In arrInvInfo
+                               Order By i.FLDInventoryNum Descending
+                               Select i)
+
+            '---displays each item from the Array List to the ListViewItem
+            For Each i In _arrInvInfo
+                Dim oItem As New ListViewItem
+                With oItem
+                    .ImageKey = "MISIcon.png"
+                    .Tag = i.FLDinvID
+                    .Text = "Inv ID: " & i.FLDinvID
+                    .SubItems.Add("Date : " & i.FLDDtTmStart.ToString("yyyy MMM dd"))
+                    .SubItems.Add("Inv Ref #: " & i.FLDInvRef)
+                    lvInvInfo.Items.Add(oItem)
+                End With
+            Next
+            '----manipulating size of listview
+            lvInvInfo.TileSize = New Size(150, 55)
+            lvInvInfo.Columns.Add(250)
+            lvInvInfo.Columns.Add(250)
+            lvInvInfo.Columns.Add(250)
+        Catch ex As Exception
+            MsgBox(ex.Message + " " + "loadInvInfo")
+        End Try
+        lvInvInfo.EndUpdate()
     End Sub
 
     Private Sub btnCreate_Click(sender As Object, e As EventArgs) Handles btnCreate.Click
-        Dim uc As New ucInventoryPage
-
         Try
             Dim _firstStoreID = (From sSet
                                  In arrStoreSettings
@@ -59,9 +94,8 @@ Public Class popCreateNewInventory
             }
 
             If _clsInvInfo.createInventory() Then
+                DialogResult = Windows.Forms.DialogResult.OK
                 MessageBox.Show("Successfully created!")
-
-                'frmMain.loadInvInfo()
                 Me.Close()
             Else
                 MessageBox.Show("")
@@ -69,7 +103,6 @@ Public Class popCreateNewInventory
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
-        uc.loadInvInfo()
     End Sub
 
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click

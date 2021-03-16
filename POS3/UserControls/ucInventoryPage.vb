@@ -3,11 +3,10 @@
 
     Private Sub ucInventoryPage_Load(sender As Object, e As EventArgs) Handles Me.Load
         loadInvInfo()
-
         '----fixed size for splitcontainer
         scMain.FixedPanel = FixedPanel.Panel1
         scMain.SplitterDistance = 190
-        lvInvInfo.Sorting = SortOrder.Ascending
+
     End Sub
 
     Private Sub lvInvInfo_DoubleClick(sender As Object, e As EventArgs) Handles lvInvInfo.DoubleClick
@@ -42,7 +41,9 @@
         'If sQuery <> 0 Then
         '---opens an empty form
         Using frm As New popCreateNewInventory
-            frm.ShowDialog()
+            If frm.ShowDialog() = Windows.Forms.DialogResult.OK Then
+                loadInvInfo()
+            End If
         End Using
         ' Else
         'MessageBox.Show("There's still an open inventory sheet, you cannot proceed!")
@@ -60,9 +61,9 @@
         '---> insert query to check invstatus posted/not
         Try
             '---retrieves the inventory info from the Array and stores it in a List.
-            Dim arrInvInfo = getInvInfo()
+            arrInvInfo = getInvInfo()
             Dim _arrInvInfo = (From i In arrInvInfo
-                               Order By i.FLDDateIDStart Descending
+                               Order By i.FLDInvID Descending
                                Select i)
 
             '---displays each item from the Array List to the ListViewItem
@@ -70,8 +71,8 @@
                 Dim oItem As New ListViewItem
                 With oItem
                     .ImageKey = "MISIcon.png"
-                    .Tag = i.FLDinvID
-                    .Text = "Inv ID: " & i.FLDinvID
+                    .Tag = i.FLDInvID
+                    .Text = "Inv ID: " & i.FLDInvID
                     .SubItems.Add("Date : " & i.FLDDtTmStart.ToString("yyyy MMM dd"))
                     .SubItems.Add("Inv Ref #: " & i.FLDInvRef)
                     lvInvInfo.Items.Add(oItem)
@@ -86,6 +87,10 @@
             MsgBox(ex.Message + " " + "loadInvInfo")
         End Try
         lvInvInfo.EndUpdate()
+    End Sub
+
+    Private Sub RefreshToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RefreshToolStripMenuItem.Click
+        loadInvInfo()
     End Sub
 #End Region
 End Class

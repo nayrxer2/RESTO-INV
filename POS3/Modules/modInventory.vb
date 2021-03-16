@@ -17,7 +17,7 @@ Module modInventory
 
 #Region "Array Classes"
     Public arrInvDetail As List(Of clsInvDetails) = getInvDetail()
-    Public arrInvInfo As List(Of clsInvSheets) = getInvInfo()
+    Public arrInvInfo As List(Of clsInvInfo) = getInvInfo()
     Public arrStoreSettings As List(Of clsStoreSettings) = getStoreSettings()
     Public arrItemUnit As List(Of clsItemUnit) = getItemUnit()
     Public arrGrpName As List(Of clsGrpName) = getGrpName()
@@ -100,8 +100,8 @@ Module modInventory
         Return list
     End Function
 
-    Public Function getInvInfo() As List(Of clsInvSheets)
-        Dim list As List(Of clsInvSheets) = New List(Of clsInvSheets)
+    Public Function getInvInfo() As List(Of clsInvInfo)
+        Dim list As List(Of clsInvInfo) = New List(Of clsInvInfo)
         sQuery = "SELECT * FROM TBLInvInfo"
         Using oConnection As New SqlConnection(modGeneral.DBconnection())
             Try
@@ -109,7 +109,7 @@ Module modInventory
                 Using oCommand As New SqlCommand(sQuery, oConnection)
                     oReader = oCommand.ExecuteReader
                     While oReader.Read
-                        Dim invSheet = New clsInvSheets
+                        Dim invSheet = New clsInvInfo
                         With invSheet
                             .FLDinvID = oReader("FLDinvID")
                             .FLDInventoryNum = oReader("FLDInventoryNum")
