@@ -107,6 +107,7 @@ Public Class ucInventory
                 frm.txtRemarks.Text = dgvInventory.CurrentRow.Cells("FLDRemarks").Value.ToString
                 frm.lblItemCodeNum.Tag = tscbGName.Text
                 frm.lblInvNumberNum.Text = tslblInvNumberText.Text
+
                 If frm.ShowDialog() = Windows.Forms.DialogResult.OK Then
                     modInventory.loadInvDet(dgvInventory, tslblInvNumberText.Text, tscbGName.Text)
                 End If
@@ -117,16 +118,48 @@ Public Class ucInventory
     End Sub
 
     Private Sub tsbtnPost_Click(sender As Object, e As EventArgs) Handles tsbtnPost.Click
-        Dim cls As New clsInvInfo
-        Dim uc As New ucInventoryPage
-        If MessageBox.Show("This action is cannot be undone, are you sure?") Then
-            cls.FLDInvID = tslblInvNumberText.Text
-            cls.FLDStatus = "POSTED"
-            tsbtnPost.Enabled = False
-            If cls.updateInvStatus() = True Then
-                uc.loadInvInfo()
-                MessageBox.Show("This inventory sheet #" + tslblInvNumberText.Text + " is posted!")
+        'If sQuery <> 0 Then
+
+        Using frmAuth As New frmPopup
+            Dim ucl As New ucLogin
+            ucl.Dock = DockStyle.Fill
+            frmAuth.Controls.Add(ucl)
+            ucl.Label1.Text = "Authentication"
+            ucl.Dock = DockStyle.Fill
+            If frmPopup.ShowDialog() = DialogResult.OK Then
+                '---opens an empty form
+                Dim cls As New clsInvInfo
+                Dim uc As New ucInventoryPage
+
+                Dim squery As String = "UPDATE TBLInvInfo SET FLDDtTmEnd = CURRENT_TIMESTAMP WHERE FLDInvID =" & tslblInvNumberText.Text
+
+                If MsgBox("This action is cannot be undone, are you sure?", vbOKCancel) = MsgBoxResult.Ok Then
+
+                    '----updates tblinvinfo timeEnd
+                    Using oConnection As New SqlConnection(modGeneral.DBconnection())
+                        Try
+                            oConnection.Open()
+                            Using oCommand As New SqlCommand(squery, oConnection)
+                                With oCommand
+                                    .ExecuteNonQuery()
+                                End With
+                            End Using
+                        Catch ex As Exception
+                            MessageBox.Show(ex.Message + "Wrong timeformat")
+                        End Try
+                    End Using
+
+                    cls.FLDInvID = tslblInvNumberText.Text
+                    cls.FLDStatus = "POSTED"
+                    tsbtnPost.Enabled = False
+                    If cls.updateInvStatus() = True Then
+                        uc.loadInvInfo()
+                        MsgBox("This inventory sheet #" + tslblInvNumberText.Text + " is posted!", vbOKOnly)
+                    End If
+                ElseIf MsgBoxResult.Cancel Then
+                    MsgBox("Process has been canceled!", vbOKOnly)
+                End If
             End If
-        End If
+        End Using
     End Sub
 End Class

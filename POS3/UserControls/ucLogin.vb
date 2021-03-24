@@ -3,28 +3,35 @@ Public Class ucLogin
     Public _ucNav As New ucNav
     'Public _ucTitle As New ucTitle
 
-    Dim uname As String
-    Dim upwd As String
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
-        uname = txtUsername.Text
-        upwd = txtPassword.Text
+        Dim uname As String = txtUsername.Text
+        Dim pwd As String = txtPassword.Text
 
-        If authentication() = True Then
-            frmPopup.Hide()
-            frmMain.Show()
-        Else
-            MessageBox.Show("Incorrect User")
+        If modGeneral.authentication(uname, pwd) = True Then
+            '----3/24/2021
+            Dim cls As New clsAuthLogs With {
+                .FLDStoreID = "",
+                .FLDDateID = "",
+                .FLDShiftID = "",
+                .FLDTerminal = "",
+                .FLDInvoiceNumber = "",
+                .FLDALDateTime = "",
+                .FLDUsername = "",
+                .FLDALAction = "",
+                .FLDALReason = ""
+            }
+
+            modGeneral.authLog()
+            '----3/24/2021
+            frmPopup.DialogResult = DialogResult.OK
+            frmPopup.Close()
+            For Each a In Me.Controls
+                If TypeOf a Is TextBox Then
+                    a.text = Nothing
+                End If
+            Next
         End If
     End Sub
-
-    Public Function authentication() As Boolean
-        Dim userList = (From user In arrUser
-                        Where user.FLDUserName = uname And user.FLDUPassword = upwd
-                        Select user.FLDUID).ToList.Count
-        If userList > 0 Then
-            Return True
-        End If
-    End Function
 
     Private Sub txtPassword_KeyDown(sender As Object, e As KeyEventArgs) Handles txtPassword.KeyDown
         If e.KeyCode = Keys.Enter Then
@@ -46,15 +53,12 @@ Public Class ucLogin
         getUserList(txtUsername)
 
         Dim uc As New ucTitle
-        Me.Controls.Add(uc)
         uc.Dock = DockStyle.Top
         uc.lblTitle.Text = ""
-
-
-
     End Sub
 
-    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
-
+    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
+        frmPopup.DialogResult = DialogResult.Cancel
+        frmPopup.Close()
     End Sub
 End Class

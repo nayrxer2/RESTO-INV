@@ -29,15 +29,11 @@ Partial Class popCreateNewInventory
         Me.txtRetRefNum = New System.Windows.Forms.TextBox()
         Me.txtDateIDStart = New System.Windows.Forms.TextBox()
         Me.txtDateIDEnd = New System.Windows.Forms.TextBox()
-        Me.dtpDateStart = New System.Windows.Forms.DateTimePicker()
-        Me.dtpDateEnd = New System.Windows.Forms.DateTimePicker()
         Me.lblInvNum = New System.Windows.Forms.Label()
         Me.lblInvRefNum = New System.Windows.Forms.Label()
         Me.lblDelRefNum = New System.Windows.Forms.Label()
         Me.lblTransRefNum = New System.Windows.Forms.Label()
         Me.lblRetRefNum = New System.Windows.Forms.Label()
-        Me.lblDateStart = New System.Windows.Forms.Label()
-        Me.lblDateEnd = New System.Windows.Forms.Label()
         Me.lblDateIDStart = New System.Windows.Forms.Label()
         Me.lblDateIDEnd = New System.Windows.Forms.Label()
         Me.pnlCreateInv = New System.Windows.Forms.Panel()
@@ -49,83 +45,76 @@ Partial Class popCreateNewInventory
         '
         'txtInvNumber
         '
+        Me.txtInvNumber.Enabled = False
         Me.txtInvNumber.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtInvNumber.Location = New System.Drawing.Point(166, 58)
+        Me.txtInvNumber.Location = New System.Drawing.Point(166, 83)
         Me.txtInvNumber.Name = "txtInvNumber"
         Me.txtInvNumber.Size = New System.Drawing.Size(134, 21)
         Me.txtInvNumber.TabIndex = 0
+        Me.txtInvNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txtInvRefNum
         '
         Me.txtInvRefNum.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtInvRefNum.Location = New System.Drawing.Point(166, 84)
+        Me.txtInvRefNum.Location = New System.Drawing.Point(166, 109)
         Me.txtInvRefNum.Name = "txtInvRefNum"
         Me.txtInvRefNum.Size = New System.Drawing.Size(134, 21)
         Me.txtInvRefNum.TabIndex = 1
+        Me.txtInvRefNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txtDelRefNum
         '
+        Me.txtDelRefNum.Enabled = False
         Me.txtDelRefNum.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDelRefNum.Location = New System.Drawing.Point(166, 110)
+        Me.txtDelRefNum.Location = New System.Drawing.Point(166, 135)
         Me.txtDelRefNum.Name = "txtDelRefNum"
         Me.txtDelRefNum.Size = New System.Drawing.Size(134, 21)
         Me.txtDelRefNum.TabIndex = 2
+        Me.txtDelRefNum.Text = "0000"
         '
         'txtTransRefNum
         '
+        Me.txtTransRefNum.Enabled = False
         Me.txtTransRefNum.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTransRefNum.Location = New System.Drawing.Point(166, 136)
+        Me.txtTransRefNum.Location = New System.Drawing.Point(166, 161)
         Me.txtTransRefNum.Name = "txtTransRefNum"
         Me.txtTransRefNum.Size = New System.Drawing.Size(134, 21)
         Me.txtTransRefNum.TabIndex = 3
+        Me.txtTransRefNum.Text = "0000"
         '
         'txtRetRefNum
         '
+        Me.txtRetRefNum.Enabled = False
         Me.txtRetRefNum.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtRetRefNum.Location = New System.Drawing.Point(166, 162)
+        Me.txtRetRefNum.Location = New System.Drawing.Point(166, 187)
         Me.txtRetRefNum.Name = "txtRetRefNum"
         Me.txtRetRefNum.Size = New System.Drawing.Size(134, 21)
         Me.txtRetRefNum.TabIndex = 4
+        Me.txtRetRefNum.Text = "0000"
         '
         'txtDateIDStart
         '
+        Me.txtDateIDStart.Enabled = False
         Me.txtDateIDStart.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDateIDStart.Location = New System.Drawing.Point(166, 267)
+        Me.txtDateIDStart.Location = New System.Drawing.Point(166, 249)
         Me.txtDateIDStart.Name = "txtDateIDStart"
         Me.txtDateIDStart.Size = New System.Drawing.Size(134, 21)
         Me.txtDateIDStart.TabIndex = 5
         '
         'txtDateIDEnd
         '
+        Me.txtDateIDEnd.Enabled = False
         Me.txtDateIDEnd.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDateIDEnd.Location = New System.Drawing.Point(166, 293)
+        Me.txtDateIDEnd.Location = New System.Drawing.Point(166, 275)
         Me.txtDateIDEnd.Name = "txtDateIDEnd"
         Me.txtDateIDEnd.Size = New System.Drawing.Size(134, 21)
         Me.txtDateIDEnd.TabIndex = 6
-        '
-        'dtpDateStart
-        '
-        Me.dtpDateStart.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpDateStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpDateStart.Location = New System.Drawing.Point(105, 201)
-        Me.dtpDateStart.Name = "dtpDateStart"
-        Me.dtpDateStart.Size = New System.Drawing.Size(195, 21)
-        Me.dtpDateStart.TabIndex = 7
-        '
-        'dtpDateEnd
-        '
-        Me.dtpDateEnd.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpDateEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpDateEnd.Location = New System.Drawing.Point(105, 227)
-        Me.dtpDateEnd.Name = "dtpDateEnd"
-        Me.dtpDateEnd.Size = New System.Drawing.Size(195, 21)
-        Me.dtpDateEnd.TabIndex = 8
         '
         'lblInvNum
         '
         Me.lblInvNum.AutoSize = True
         Me.lblInvNum.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblInvNum.Location = New System.Drawing.Point(17, 61)
+        Me.lblInvNum.Location = New System.Drawing.Point(17, 86)
         Me.lblInvNum.Name = "lblInvNum"
         Me.lblInvNum.Size = New System.Drawing.Size(92, 13)
         Me.lblInvNum.TabIndex = 9
@@ -135,7 +124,7 @@ Partial Class popCreateNewInventory
         '
         Me.lblInvRefNum.AutoSize = True
         Me.lblInvRefNum.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblInvRefNum.Location = New System.Drawing.Point(17, 87)
+        Me.lblInvRefNum.Location = New System.Drawing.Point(17, 112)
         Me.lblInvRefNum.Name = "lblInvRefNum"
         Me.lblInvRefNum.Size = New System.Drawing.Size(117, 13)
         Me.lblInvRefNum.TabIndex = 10
@@ -145,7 +134,7 @@ Partial Class popCreateNewInventory
         '
         Me.lblDelRefNum.AutoSize = True
         Me.lblDelRefNum.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDelRefNum.Location = New System.Drawing.Point(17, 113)
+        Me.lblDelRefNum.Location = New System.Drawing.Point(17, 138)
         Me.lblDelRefNum.Name = "lblDelRefNum"
         Me.lblDelRefNum.Size = New System.Drawing.Size(107, 13)
         Me.lblDelRefNum.TabIndex = 11
@@ -155,7 +144,7 @@ Partial Class popCreateNewInventory
         '
         Me.lblTransRefNum.AutoSize = True
         Me.lblTransRefNum.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTransRefNum.Location = New System.Drawing.Point(17, 139)
+        Me.lblTransRefNum.Location = New System.Drawing.Point(17, 164)
         Me.lblTransRefNum.Name = "lblTransRefNum"
         Me.lblTransRefNum.Size = New System.Drawing.Size(110, 13)
         Me.lblTransRefNum.TabIndex = 12
@@ -165,37 +154,17 @@ Partial Class popCreateNewInventory
         '
         Me.lblRetRefNum.AutoSize = True
         Me.lblRetRefNum.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblRetRefNum.Location = New System.Drawing.Point(17, 165)
+        Me.lblRetRefNum.Location = New System.Drawing.Point(17, 190)
         Me.lblRetRefNum.Name = "lblRetRefNum"
         Me.lblRetRefNum.Size = New System.Drawing.Size(104, 13)
         Me.lblRetRefNum.TabIndex = 13
         Me.lblRetRefNum.Text = "RETURNS REF #:"
         '
-        'lblDateStart
-        '
-        Me.lblDateStart.AutoSize = True
-        Me.lblDateStart.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDateStart.Location = New System.Drawing.Point(17, 207)
-        Me.lblDateStart.Name = "lblDateStart"
-        Me.lblDateStart.Size = New System.Drawing.Size(82, 13)
-        Me.lblDateStart.TabIndex = 14
-        Me.lblDateStart.Text = "DATE START:"
-        '
-        'lblDateEnd
-        '
-        Me.lblDateEnd.AutoSize = True
-        Me.lblDateEnd.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDateEnd.Location = New System.Drawing.Point(17, 233)
-        Me.lblDateEnd.Name = "lblDateEnd"
-        Me.lblDateEnd.Size = New System.Drawing.Size(70, 13)
-        Me.lblDateEnd.TabIndex = 15
-        Me.lblDateEnd.Text = "DATE END:"
-        '
         'lblDateIDStart
         '
         Me.lblDateIDStart.AutoSize = True
         Me.lblDateIDStart.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDateIDStart.Location = New System.Drawing.Point(17, 270)
+        Me.lblDateIDStart.Location = New System.Drawing.Point(17, 252)
         Me.lblDateIDStart.Name = "lblDateIDStart"
         Me.lblDateIDStart.Size = New System.Drawing.Size(100, 13)
         Me.lblDateIDStart.TabIndex = 16
@@ -205,7 +174,7 @@ Partial Class popCreateNewInventory
         '
         Me.lblDateIDEnd.AutoSize = True
         Me.lblDateIDEnd.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDateIDEnd.Location = New System.Drawing.Point(17, 296)
+        Me.lblDateIDEnd.Location = New System.Drawing.Point(17, 278)
         Me.lblDateIDEnd.Name = "lblDateIDEnd"
         Me.lblDateIDEnd.Size = New System.Drawing.Size(88, 13)
         Me.lblDateIDEnd.TabIndex = 17
@@ -222,18 +191,14 @@ Partial Class popCreateNewInventory
         Me.pnlCreateInv.Controls.Add(Me.txtInvRefNum)
         Me.pnlCreateInv.Controls.Add(Me.lblDateIDStart)
         Me.pnlCreateInv.Controls.Add(Me.txtDelRefNum)
-        Me.pnlCreateInv.Controls.Add(Me.lblDateEnd)
         Me.pnlCreateInv.Controls.Add(Me.txtTransRefNum)
-        Me.pnlCreateInv.Controls.Add(Me.lblDateStart)
         Me.pnlCreateInv.Controls.Add(Me.txtRetRefNum)
         Me.pnlCreateInv.Controls.Add(Me.lblRetRefNum)
         Me.pnlCreateInv.Controls.Add(Me.txtDateIDStart)
         Me.pnlCreateInv.Controls.Add(Me.lblTransRefNum)
         Me.pnlCreateInv.Controls.Add(Me.txtDateIDEnd)
         Me.pnlCreateInv.Controls.Add(Me.lblDelRefNum)
-        Me.pnlCreateInv.Controls.Add(Me.dtpDateStart)
         Me.pnlCreateInv.Controls.Add(Me.lblInvRefNum)
-        Me.pnlCreateInv.Controls.Add(Me.dtpDateEnd)
         Me.pnlCreateInv.Controls.Add(Me.lblInvNum)
         Me.pnlCreateInv.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.pnlCreateInv.Location = New System.Drawing.Point(3, 2)
@@ -258,7 +223,7 @@ Partial Class popCreateNewInventory
         Me.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCancel.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCancel.ForeColor = System.Drawing.SystemColors.Desktop
-        Me.btnCancel.Location = New System.Drawing.Point(144, 338)
+        Me.btnCancel.Location = New System.Drawing.Point(144, 345)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(75, 28)
         Me.btnCancel.TabIndex = 19
@@ -272,7 +237,7 @@ Partial Class popCreateNewInventory
         Me.btnCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCreate.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCreate.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btnCreate.Location = New System.Drawing.Point(225, 338)
+        Me.btnCreate.Location = New System.Drawing.Point(225, 345)
         Me.btnCreate.Name = "btnCreate"
         Me.btnCreate.Size = New System.Drawing.Size(75, 28)
         Me.btnCreate.TabIndex = 18
@@ -302,15 +267,11 @@ Partial Class popCreateNewInventory
     Friend WithEvents txtRetRefNum As TextBox
     Friend WithEvents txtDateIDStart As TextBox
     Friend WithEvents txtDateIDEnd As TextBox
-    Friend WithEvents dtpDateStart As DateTimePicker
-    Friend WithEvents dtpDateEnd As DateTimePicker
     Friend WithEvents lblInvNum As Label
     Friend WithEvents lblInvRefNum As Label
     Friend WithEvents lblDelRefNum As Label
     Friend WithEvents lblTransRefNum As Label
     Friend WithEvents lblRetRefNum As Label
-    Friend WithEvents lblDateStart As Label
-    Friend WithEvents lblDateEnd As Label
     Friend WithEvents lblDateIDStart As Label
     Friend WithEvents lblDateIDEnd As Label
     Friend WithEvents pnlCreateInv As Panel

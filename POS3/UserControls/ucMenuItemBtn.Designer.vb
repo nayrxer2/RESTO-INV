@@ -35,9 +35,6 @@ Partial Class ucMenuItemBtn
         Me.Button1.Text = "Button1"
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'BackgroundWorker1
-        '
-        '
         'ucMenuItemBtn
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)

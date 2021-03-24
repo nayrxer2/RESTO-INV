@@ -19,6 +19,20 @@
 
         _ucInventory.dgvHeaderText()
 
+
+        Dim cls As New clsInvInfo
+        Dim arrcls As List(Of clsInvInfo) = cls.checkStatus()
+        Dim _arrcls = (From l In arrcls
+                       Where l.FLDInvID = lvInvInfo.FocusedItem.Tag
+                       Select l.FLDStatus).SingleOrDefault
+
+        If _arrcls <> "POSTED" Then
+            _ucInventory.tsbtnPost.Enabled = True
+        ElseIf _arrcls = "POSTED" Then
+            _ucInventory.tsbtnPost.Enabled = False
+        End If
+
+
         scMain.Panel2.Controls.Add(_ucInventory)
     End Sub
 
@@ -39,12 +53,24 @@
                       Select i.FLDInvID).Count
 
         'If sQuery <> 0 Then
-        '---opens an empty form
-        Using frm As New popCreateNewInventory
-            If frm.ShowDialog() = Windows.Forms.DialogResult.OK Then
-                loadInvInfo()
+
+        Using frmAuth As New frmPopup
+            Dim uc As New ucLogin
+            uc.Dock = DockStyle.Fill
+            frmAuth.Controls.Add(uc)
+            uc.Label1.Text = "Authentication"
+            uc.Dock = DockStyle.Fill
+            If frmPopup.ShowDialog() = DialogResult.OK Then
+                '---opens an empty form
+                Using frm As New popCreateNewInventory
+                    If frm.ShowDialog() = Windows.Forms.DialogResult.OK Then
+                        loadInvInfo()
+                        'frmAuth.Close()
+                    End If
+                End Using
             End If
         End Using
+
         ' Else
         'MessageBox.Show("There's still an open inventory sheet, you cannot proceed!")
         'End If

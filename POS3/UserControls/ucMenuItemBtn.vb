@@ -1,6 +1,9 @@
 ﻿Imports System.Data.SqlClient
 
 Public Class ucMenuItemBtn
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
+    End Sub
 
 
     'Public Sub Button1_Click(sender As Object, e As EventArgs)

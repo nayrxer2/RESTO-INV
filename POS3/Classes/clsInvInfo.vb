@@ -31,8 +31,8 @@ Public Class clsInvInfo
                         .Parameters.AddWithValue("@FLDDelRef", FLDDelRef)
                         .Parameters.AddWithValue("@FLDTransRef", FLDTransRef)
                         .Parameters.AddWithValue("@FLDRetRef", FLDRetRef)
-                        .Parameters.AddWithValue("@FLDDtTmStart", FLDDtTmStart)
-                        .Parameters.AddWithValue("@FLDDtTmEnd", FLDDtTmEnd)
+                        .Parameters.AddWithValue("@FLDDtTmStart", Date.Now)
+                        .Parameters.AddWithValue("@FLDDtTmEnd", "")
                         .Parameters.AddWithValue("@FLDDateIDStart", FLDDateIDStart)
                         .Parameters.AddWithValue("@FLDDateIDEnd", FLDDateIDEnd)
                         .Parameters.AddWithValue("@FLDStoreID", FLDStoreID)
@@ -67,6 +67,7 @@ Public Class clsInvInfo
         End Using
         Return False
     End Function
+
     Public Function checkStatus() As List(Of clsInvInfo)
         Dim listUpdate As List(Of clsInvInfo) = New List(Of clsInvInfo)
         Dim squery As String = "SELECT * FROM TBLInvStatus"

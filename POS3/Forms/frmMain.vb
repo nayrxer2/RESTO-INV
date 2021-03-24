@@ -1,4 +1,5 @@
-﻿Imports System.Data.SqlClient
+﻿Imports System.ComponentModel
+Imports System.Data.SqlClient
 Public Class frmMain
     Private _ucTitle As New ucTitle
     Private _ucInventoryPage As New ucInventoryPage
@@ -20,18 +21,35 @@ Public Class frmMain
         End
     End Sub
 
+
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles Me.Load
-        Me.WindowState = FormWindowState.Maximized
+        'Me.Hide()
 
-        Me.Controls.Add(_ucInventoryPage)
-        _ucInventoryPage.Dock = DockStyle.Fill
+        'Using frm As New frmPopup
+        Dim uc As New ucLogin
+        uc.Dock = DockStyle.Fill
+        frmPopup.Controls.Add(uc)
 
-        Me.Controls.Add(_ucTitle)
-        _ucTitle.lblTitle.Text = "Coffeebreak Intl Inventory System"
-        _ucTitle.pbTitleImage.ImageLocation = "D:\Projects\RESTO-INV\POS3\Assets\logo.png"
+        If frmPopup.ShowDialog() = DialogResult.OK Then
+            MessageBox.Show("mae Sakto")
+            Me.WindowState = FormWindowState.Maximized
 
-        MyPCName = System.Net.Dns.GetHostName
+            Me.Controls.Add(_ucInventoryPage)
+            _ucInventoryPage.Dock = DockStyle.Fill
 
-        modInventory.getStoreSettings()
+            Me.Controls.Add(_ucTitle)
+            _ucTitle.lblTitle.Text = "Coffeebreak Intl Inventory System"
+            _ucTitle.pbTitleImage.ImageLocation = "D:\Projects\RESTO-INV\POS3\Assets\logo.png"
+
+            MyPCName = System.Net.Dns.GetHostName
+
+            modInventory.getStoreSettings()
+        ElseIf frmPopup.DialogResult = DialogResult.Cancel Then
+            Me.Dispose()
+        Else
+            MessageBox.Show("There's an error before loading inventory sheet")
+        End If
+        'End Using
     End Sub
+
 End Class
