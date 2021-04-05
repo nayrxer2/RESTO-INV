@@ -32,7 +32,7 @@ Public Class clsInvDetails
     Public Function updateInvDetails(itemCode As String, invIDNum As Integer) As Boolean
         Dim list As List(Of clsInvDetails) = New List(Of clsInvDetails)
         Dim squery As String = "UPDATE TBLInvDetail SET FLDRemarks = @FLDRemarks, FLDStart = @FLDStart, FLDInvEndW = @FLDInvEndW, FLDInvEndF = @FLDInvEndF, FLDInvEndE = @FLDInvEndE, FLDInvEndT = @FLDInvEndT WHERE FLDInvID =" & invIDNum & "AND FLDItemCode  ='" & itemCode & "'"
-        Using oConnection As New SqlConnection(modGeneral.DBconnection)
+        Using oConnection As New SqlConnection(modGeneral.DBconnection())
             Try
                 oConnection.Open()
                 Using oCommand As New SqlCommand(squery, oConnection)

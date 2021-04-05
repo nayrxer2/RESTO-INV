@@ -111,7 +111,7 @@ Module modInventory
                     While oReader.Read
                         Dim invSheet = New clsInvInfo
                         With invSheet
-                            .FLDinvID = oReader("FLDinvID")
+                            .FLDInvID = oReader("FLDinvID")
                             .FLDInventoryNum = oReader("FLDInventoryNum")
                             .FLDInvRef = oReader("FLDInvRef")
                             .FLDDelRef = oReader("FLDDelRef")

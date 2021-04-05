@@ -15,23 +15,16 @@ Public Class frmMain
 
     '    modInventory.getStoreSettings()
     'End Sub
-
-
-    Private Sub btnExit_Click(sender As Object, e As EventArgs)
-        End
-    End Sub
-
-
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles Me.Load
-        'Me.Hide()
 
-        'Using frm As New frmPopup
         Dim uc As New ucLogin
-        uc.Dock = DockStyle.Fill
-        frmPopup.Controls.Add(uc)
+            uc.ucheader = "Welcome!"
+            uc.ucsubheader = "Please log-in to continue"
+            uc.ucAction = "Login"
+            uc.Dock = DockStyle.Fill
+            frmPopup.Controls.Add(uc)
 
         If frmPopup.ShowDialog() = DialogResult.OK Then
-            MessageBox.Show("mae Sakto")
             Me.WindowState = FormWindowState.Maximized
 
             Me.Controls.Add(_ucInventoryPage)
@@ -44,12 +37,15 @@ Public Class frmMain
             MyPCName = System.Net.Dns.GetHostName
 
             modInventory.getStoreSettings()
+            frmPopup.Close()
         ElseIf frmPopup.DialogResult = DialogResult.Cancel Then
             Me.Dispose()
         Else
             MessageBox.Show("There's an error before loading inventory sheet")
         End If
-        'End Using
     End Sub
 
+    Private Sub btnExit_Click(sender As Object, e As EventArgs)
+        End
+    End Sub
 End Class

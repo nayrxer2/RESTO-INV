@@ -27,8 +27,8 @@ Partial Class ucLogin
         Me.txtUsername = New System.Windows.Forms.TextBox()
         Me.txtPassword = New System.Windows.Forms.TextBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.lblHeading = New System.Windows.Forms.Label()
+        Me.lblSubheading = New System.Windows.Forms.Label()
         Me.btnClose = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -85,33 +85,32 @@ Partial Class ucLogin
         Me.PictureBox1.TabIndex = 6
         Me.PictureBox1.TabStop = False
         '
-        'Label1
+        'lblHeading
         '
-        Me.Label1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.lblHeading.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label1.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label1.Location = New System.Drawing.Point(0, 110)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(223, 16)
-        Me.Label1.TabIndex = 7
-        Me.Label1.Text = "Welcome!"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.lblHeading.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblHeading.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.lblHeading.Location = New System.Drawing.Point(0, 110)
+        Me.lblHeading.Name = "lblHeading"
+        Me.lblHeading.Size = New System.Drawing.Size(223, 16)
+        Me.lblHeading.TabIndex = 7
+        Me.lblHeading.Text = "Welcome!"
+        Me.lblHeading.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'Label2
+        'lblSubheading
         '
-        Me.Label2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.lblSubheading.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label2.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label2.Location = New System.Drawing.Point(0, 126)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(223, 13)
-        Me.Label2.TabIndex = 8
-        Me.Label2.Text = "Please log-in to continue"
-        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.lblSubheading.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSubheading.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.lblSubheading.Location = New System.Drawing.Point(0, 126)
+        Me.lblSubheading.Name = "lblSubheading"
+        Me.lblSubheading.Size = New System.Drawing.Size(223, 13)
+        Me.lblSubheading.TabIndex = 8
+        Me.lblSubheading.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'btnClose
         '
@@ -135,8 +134,8 @@ Partial Class ucLogin
         Me.BackColor = System.Drawing.Color.Black
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.Controls.Add(Me.btnClose)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.lblSubheading)
+        Me.Controls.Add(Me.lblHeading)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.txtPassword)
         Me.Controls.Add(Me.txtUsername)
@@ -152,7 +151,7 @@ Partial Class ucLogin
     Friend WithEvents txtUsername As TextBox
     Friend WithEvents txtPassword As TextBox
     Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents Label1 As Label
-    Friend WithEvents Label2 As Label
+    Friend WithEvents lblHeading As Label
+    Friend WithEvents lblSubheading As Label
     Friend WithEvents btnClose As Button
 End Class

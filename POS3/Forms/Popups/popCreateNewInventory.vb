@@ -12,47 +12,56 @@ Public Class popCreateNewInventory
                                In arrInvInfo Order By linvInfo.FLDInvID Descending
                                Select linvInfo.FLDInvRef).First + 1
 
-            txtInvNumber.Text = CStr(_arrInvInfo)
+        txtInvNumber.Text = CStr(_arrInvInfo)
 
-            Dim dateId = (From l In arrInvInfo
-                          Order By l.FLDInvID Descending
-                          Select l.FLDDateIDEnd).First + 1
+        Dim dateId = (From l In arrInvInfo
+                      Order By l.FLDInvID Descending
+                      Select l.FLDDateIDEnd).First + 1
 
-            txtDateIDStart.Text = dateId
+        txtDateIDStart.Text = dateId
         txtDateIDEnd.Text = dateId
     End Sub
 
 
     Private Sub btnCreate_Click(sender As Object, e As EventArgs) Handles btnCreate.Click
-        Try
+        Dim uc As New ucLogin
+        uc.ucheader = "Authentication!"
+        uc.ucsubheader = "Please enter your credentials"
+        uc.ucAction = "Create"
+        uc.Dock = DockStyle.Fill
+        frmPopup.Controls.Add(uc)
+        If frmPopup.ShowDialog() = DialogResult.OK Then
+            frmPopup.Close()
+            Try
             Dim _firstStoreID = (From sSet
-                                         In arrStoreSettings
-                                 Select sSet.FLDStoreID).First
+                                             In arrStoreSettings
+                                     Select sSet.FLDStoreID).First
 
-            Dim storeID As Integer = _firstStoreID
+                Dim storeID As Integer = _firstStoreID
 
-            Dim _clsInvInfo As New clsInvInfo With {
-                        .FLDInventoryNum = txtInvNumber.Text,
-                        .FLDInvRef = txtInvRefNum.Text,
-                        .FLDDelRef = txtDelRefNum.Text,
-                        .FLDTransRef = txtTransRefNum.Text,
-                        .FLDRetRef = txtRetRefNum.Text,
-                        .FLDDateIDStart = txtDateIDStart.Text,
-                        .FLDDateIDEnd = txtDateIDEnd.Text,
-                        .FLDStoreID = storeID
-                    }   '.FLDDtTmStart = Date.Now,.FLDDtTmEnd = CStr(dtpDateEnd.Value.Date),
+                Dim _clsInvInfo As New clsInvInfo With {
+                            .FLDInventoryNum = txtInvNumber.Text,
+                            .FLDInvRef = txtInvRefNum.Text,
+                            .FLDDelRef = txtDelRefNum.Text,
+                            .FLDTransRef = txtTransRefNum.Text,
+                            .FLDRetRef = txtRetRefNum.Text,
+                            .FLDDateIDStart = txtDateIDStart.Text,
+                            .FLDDateIDEnd = txtDateIDEnd.Text,
+                            .FLDStoreID = storeID
+                        }   '.FLDDtTmStart = Date.Now,.FLDDtTmEnd = CStr(dtpDateEnd.Value.Date),
 
 
-            If _clsInvInfo.createInventory() Then
-                DialogResult = Windows.Forms.DialogResult.OK
-                MessageBox.Show("Successfully created!")
-                Me.Close()
-            Else
-                MessageBox.Show("Error while creating new inventory")
-            End If
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        End Try
+                If _clsInvInfo.createInventory() Then
+                    DialogResult = Windows.Forms.DialogResult.OK
+                    MessageBox.Show("Successfully created!")
+                    Me.Close()
+                Else
+                    MessageBox.Show("Error while creating new inventory")
+                End If
+            Catch ex As Exception
+                MessageBox.Show(ex.Message)
+            End Try
+        End If
     End Sub
 
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click

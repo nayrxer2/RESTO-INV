@@ -81,6 +81,7 @@
     <Compile Include="Classes\clsItemUnit.vb" />
     <Compile Include="Classes\clsStoreSettings.vb" />
     <Compile Include="Classes\clsUser.vb" />
+    <Compile Include="Classes\clsUserLogin.vb" />
     <Compile Include="Forms\frmMain.vb">
       <SubType>Form</SubType>
     </Compile>

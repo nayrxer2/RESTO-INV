@@ -36,6 +36,7 @@
         scMain.Panel2.Controls.Add(_ucInventory)
     End Sub
 
+
     Private Sub CreateNewToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CreateNewToolStripMenuItem.Click
         Dim arr = getInvInfo()
 
@@ -52,24 +53,28 @@
                       Where i.FLDInvID = invIDstatus
                       Select i.FLDInvID).Count
 
+
+        'Using frmAuth As New frmPopup
         'If sQuery <> 0 Then
 
-        Using frmAuth As New frmPopup
-            Dim uc As New ucLogin
-            uc.Dock = DockStyle.Fill
-            frmAuth.Controls.Add(uc)
-            uc.Label1.Text = "Authentication"
-            uc.Dock = DockStyle.Fill
-            If frmPopup.ShowDialog() = DialogResult.OK Then
-                '---opens an empty form
-                Using frm As New popCreateNewInventory
-                    If frm.ShowDialog() = Windows.Forms.DialogResult.OK Then
-                        loadInvInfo()
-                        'frmAuth.Close()
-                    End If
-                End Using
+        'Dim uc As New ucLogin
+        'uc.ucheader = "Authentication!"
+        'uc.ucsubheader = "Please enter your credentials"
+        'uc.ucAction = "Create"
+        'uc.Dock = DockStyle.Fill
+        'frmPopup.Controls.Add(uc)
+
+        'If frmPopup.ShowDialog() = DialogResult.OK Then
+        'frmPopup.Close()
+        '---opens an empty form
+        Using frm As New popCreateNewInventory
+            If frm.ShowDialog() = Windows.Forms.DialogResult.OK Then
+                loadInvInfo()
+                'frmAuth.Close()
             End If
         End Using
+        'End If
+        ' End Using
 
         ' Else
         'MessageBox.Show("There's still an open inventory sheet, you cannot proceed!")
